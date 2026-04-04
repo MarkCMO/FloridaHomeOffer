@@ -1,0 +1,59 @@
+# FloridaHomeOffer
+
+## Summary
+FloridaHomeOffer helps property owners sell any type of real estate fast for cash - residential homes, commercial buildings, vacant land, multi-family properties, mobile homes, farms, industrial buildings, retail properties, and mixed-use buildings. We serve all 67 Florida counties and provide free, no-obligation cash offers within 24 hours. No agents, no fees, no repairs required. We buy properties in any condition and can close in as little as 7 days.
+
+## Company
+- Name: FloridaHomeOffer (WETYR Corp)
+- Founder: Mark Gabrielli
+- Service Area: All of Florida (67 counties, 50+ cities) plus nationwide
+- Contact: (321) 555-0199
+
+## Primary Topics
+- Selling a home or property fast for cash in Florida
+- Cash offers for residential, commercial, and land properties
+- Selling without a real estate agent (FSBO alternatives)
+- Selling property as-is in any condition
+- Florida real estate laws, closing costs, and timelines
+- FSBO vs cash buyer vs real estate agent comparison
+- Property types: residential, commercial, land, multi-family, mobile homes, industrial, retail, farm, mixed-use
+- Special situations: divorce, inherited property, foreclosure, tax liens, code violations, probate, tenant issues
+
+## Property Types We Buy
+- Single-family homes
+- Condominiums and townhouses
+- Multi-family properties (duplexes to apartment complexes)
+- Commercial properties (office, retail, medical, restaurant)
+- Vacant land (residential lots, commercial parcels, agricultural acreage)
+- Mobile and manufactured homes
+- Industrial properties (warehouses, factories, flex space)
+- Farm and ranch properties
+- Mixed-use buildings
+- Retail storefronts and shopping centers
+
+## Pages
+- /: Homepage - sell your property fast for cash, all types accepted
+- /how-it-works.html: 3-step process explanation for cash sales
+- /cash-offer.html: Get a free cash offer form (primary conversion page)
+- /compare-options.html: Agent vs FSBO vs Cash Buyer comparison with real numbers
+- /categories.html: All property types we purchase with detailed information
+- /faq.html: Comprehensive 25+ question FAQ covering process, pricing, Florida law, and special situations
+- /about.html: Company information, founder bio, values, and E-E-A-T signals
+- /contact.html: Contact form, phone, email, service area
+- /cities/: Index of all 55 Florida city pages
+- /cities/sell-house-fast-[city].html: City-specific selling guides for 55+ Florida cities
+- /guides/sell-house-without-realtor.html: Complete FSBO guide for Florida
+- /guides/sell-house-as-is-florida.html: How to sell property as-is in Florida
+- /guides/how-to-sell-house-fast.html: Fast sale strategies for Florida sellers
+- /guides/fsbo-vs-cash-buyer.html: Detailed FSBO vs cash buyer comparison
+- /guides/what-is-a-cash-offer.html: Cash offer explanation and benefits
+- /guides/closing-costs-florida.html: Complete Florida closing cost breakdown for sellers
+- /guides/how-long-to-sell-house-florida.html: Timeline expectations for Florida property sales
+- /guides/sell-house-during-divorce.html: Selling during divorce in Florida
+- /guides/sell-inherited-house-florida.html: Inherited property selling guide
+- /guides/sell-house-avoid-foreclosure.html: Foreclosure avoidance through fast sale
+- /guides/sell-house-probate-florida.html: Probate property sales in Florida
+- /guides/sell-rental-property-florida.html: Selling rental properties with tenants
+
+## Sitemap
+https://floridahomeoffer.com/sitemap.xml

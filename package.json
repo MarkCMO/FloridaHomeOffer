@@ -1,0 +1,13 @@
+{
+  "name": "florida-home-offer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:cities": "node build-cities.js",
+    "build": "node build-cities.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "resend": "^3.5.0"
+  }
+}
