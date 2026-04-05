@@ -37,7 +37,6 @@ exports.handler = async (event) => {
       city: data.city ? String(data.city).trim().slice(0, 100) : null,
       state: 'FL',
       property_condition: data.property_condition ? String(data.property_condition).trim() : null,
-      property_type: data.property_type ? String(data.property_type).trim() : null,
       timeframe: data.timeframe ? String(data.timeframe).trim() : null,
       message: data.message ? String(data.message).trim().slice(0, 2000) : null,
       type: data.type === 'contact' ? 'contact' : 'lead',
@@ -114,7 +113,6 @@ exports.handler = async (event) => {
                 <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">Email</td><td style="padding:6px;border-bottom:1px solid #ddd;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
                 <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">Address</td><td style="padding:6px;border-bottom:1px solid #ddd;">${lead.address || '-'}</td></tr>
                 <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">City</td><td style="padding:6px;border-bottom:1px solid #ddd;">${lead.city || '-'}</td></tr>
-                <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">Property Type</td><td style="padding:6px;border-bottom:1px solid #ddd;">${lead.property_type || '-'}</td></tr>
                 <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">Condition</td><td style="padding:6px;border-bottom:1px solid #ddd;">${lead.property_condition || '-'}</td></tr>
                 <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">Timeframe</td><td style="padding:6px;border-bottom:1px solid #ddd;">${lead.timeframe || '-'}</td></tr>
                 <tr><td style="padding:6px;font-weight:bold;border-bottom:1px solid #ddd;">Message</td><td style="padding:6px;border-bottom:1px solid #ddd;">${lead.message || '-'}</td></tr>

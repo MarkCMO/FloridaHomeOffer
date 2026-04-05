@@ -30,5 +30,14 @@ CREATE INDEX IF NOT EXISTS idx_leads_created ON leads(created_at DESC);
 
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
 
+-- Allow inserts from anon key (for the lead capture function)
+CREATE POLICY "Allow anon inserts" ON leads
+  FOR INSERT WITH CHECK (true);
+
+-- Allow service role full access
 CREATE POLICY "Service role full access" ON leads
   FOR ALL USING (auth.role() = 'service_role');
+
+-- Allow anon to read own leads (for thank-you page confirmation)
+CREATE POLICY "Allow anon select" ON leads
+  FOR SELECT USING (true);
