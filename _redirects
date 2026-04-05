@@ -1,4 +1,34 @@
-/api/lead-capture  /.netlify/functions/lead-capture  200
-/sell-my-house     /cash-offer.html                  301
-/get-offer         /cash-offer.html                  301
-/florida           /                                 301
+# API
+/api/lead-capture          /.netlify/functions/lead-capture  200
+
+# Conversion aliases
+/sell-my-house             /cash-offer.html                  301
+/sell-my-home              /cash-offer.html                  301
+/get-offer                 /cash-offer.html                  301
+/get-cash-offer            /cash-offer.html                  301
+/free-offer                /cash-offer.html                  301
+/offer                     /cash-offer.html                  301
+
+# Page aliases
+/florida                   /                                 301
+/home                      /                                 301
+/how-it-works              /how-it-works.html                301
+/compare                   /compare-options.html             301
+/property-types            /categories.html                  301
+/types                     /categories.html                  301
+/pricing                   /how-we-price.html                301
+/how-we-price              /how-we-price.html                301
+/about-us                  /about.html                       301
+/faq                       /faq.html                         301
+/contact-us                /contact.html                     301
+/blog                      /blog/                            301
+
+# City shorthand
+/miami                     /cities/sell-house-fast-miami.html       301
+/orlando                   /cities/sell-house-fast-orlando.html     301
+/tampa                     /cities/sell-house-fast-tampa.html       301
+/jacksonville              /cities/sell-house-fast-jacksonville.html 301
+
+# Legacy/typo catches
+/cities/index.html         /cities/                          301
+/guides/index.html         /guides/                          301

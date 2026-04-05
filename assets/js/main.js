@@ -228,8 +228,103 @@
     });
   }
 
+  // --- Inject Head Meta (OG, Twitter, Geo, Favicon) ---
+  function injectHeadMeta() {
+    var head = document.head;
+    var title = document.title.split('|')[0].trim();
+    var desc = '';
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) desc = metaDesc.getAttribute('content') || '';
+    var url = window.location.href;
+    var siteName = 'FloridaHomeOffer';
+    var ogImage = 'https://florida-home-offer.netlify.app/og-image.png';
+
+    function addMeta(property, content) {
+      if (!content || document.querySelector('meta[property="' + property + '"]')) return;
+      var m = document.createElement('meta');
+      m.setAttribute('property', property);
+      m.setAttribute('content', content);
+      head.appendChild(m);
+    }
+    function addMetaName(name, content) {
+      if (!content || document.querySelector('meta[name="' + name + '"]')) return;
+      var m = document.createElement('meta');
+      m.setAttribute('name', name);
+      m.setAttribute('content', content);
+      head.appendChild(m);
+    }
+
+    // Open Graph
+    addMeta('og:title', title);
+    addMeta('og:description', desc);
+    addMeta('og:url', url);
+    addMeta('og:type', 'website');
+    addMeta('og:site_name', siteName);
+    addMeta('og:image', ogImage);
+    addMeta('og:image:width', '1200');
+    addMeta('og:image:height', '630');
+
+    // Twitter Card
+    addMetaName('twitter:card', 'summary_large_image');
+    addMetaName('twitter:title', title);
+    addMetaName('twitter:description', desc);
+    addMetaName('twitter:image', ogImage);
+
+    // Geo tags (all pages)
+    addMetaName('geo.region', 'US-FL');
+    addMetaName('geo.placename', 'Florida');
+
+    // City-specific geo
+    var city = document.body.dataset.city;
+    if (city) {
+      addMetaName('geo.placename', city + ', Florida');
+    }
+
+    // Favicon
+    if (!document.querySelector('link[rel="icon"]')) {
+      var fav = document.createElement('link');
+      fav.rel = 'icon';
+      fav.type = 'image/svg+xml';
+      fav.href = '/favicon.svg';
+      head.appendChild(fav);
+    }
+
+    // Manifest
+    if (!document.querySelector('link[rel="manifest"]')) {
+      var man = document.createElement('link');
+      man.rel = 'manifest';
+      man.href = '/manifest.json';
+      head.appendChild(man);
+    }
+  }
+
+  // --- Inject Analytics (GA4 + Clarity) ---
+  function injectAnalytics() {
+    // GA4 - replace G-XXXXXXXXXX with real ID when available
+    var GA_ID = 'G-PLACEHOLDER';
+    if (GA_ID !== 'G-PLACEHOLDER') {
+      var gs = document.createElement('script');
+      gs.async = true;
+      gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(gs);
+      var gi = document.createElement('script');
+      gi.textContent = 'window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","' + GA_ID + '");';
+      document.head.appendChild(gi);
+    }
+
+    // Microsoft Clarity - replace CLARITY_ID when available
+    var CLARITY_ID = 'PLACEHOLDER';
+    if (CLARITY_ID !== 'PLACEHOLDER') {
+      var cs = document.createElement('script');
+      cs.textContent = '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","' + CLARITY_ID + '");';
+      document.head.appendChild(cs);
+    }
+  }
+
   // --- Init ---
   document.addEventListener('DOMContentLoaded', function() {
+    injectHeadMeta();
+    injectAnalytics();
     injectLayout();
     initMobileNav();
     initScrollNav();

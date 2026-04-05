@@ -1,0 +1,16 @@
+{
+  "name": "FloridaHomeOffer",
+  "short_name": "FLHomeOffer",
+  "description": "Sell your Florida property fast for cash. Any type, any condition.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1120",
+  "theme_color": "#C8A84E",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

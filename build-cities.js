@@ -111,7 +111,91 @@ const cityIndexHTML = `<!DOCTYPE html>
 
 fs.writeFileSync(path.join(CITIES_DIR, 'index.html'), cityIndexHTML, 'utf-8');
 
-// Generate sitemap.xml
+// --- COUNTY PAGE GENERATION ---
+const COUNTIES_DIR = path.join(ROOT, 'counties');
+const COUNTY_DATA_FILE = path.join(ROOT, 'data', 'florida-counties.json');
+const COUNTY_TEMPLATE_FILE = path.join(ROOT, 'county-template.html');
+
+let countyGenerated = 0;
+if (fs.existsSync(COUNTY_DATA_FILE) && fs.existsSync(COUNTY_TEMPLATE_FILE)) {
+  if (!fs.existsSync(COUNTIES_DIR)) {
+    fs.mkdirSync(COUNTIES_DIR, { recursive: true });
+  }
+  const counties = JSON.parse(fs.readFileSync(COUNTY_DATA_FILE, 'utf-8'));
+  const countyTemplate = fs.readFileSync(COUNTY_TEMPLATE_FILE, 'utf-8');
+
+  counties.forEach(county => {
+    const cityLinks = (county.cities || [])
+      .filter(slug => cityMap[slug])
+      .map(slug => {
+        const c = cityMap[slug];
+        return `<a href="/cities/sell-house-fast-${c.slug}.html" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`;
+      })
+      .join('\n        ');
+
+    let html = countyTemplate
+      .replace(/\{\{COUNTY_NAME\}\}/g, county.name)
+      .replace(/\{\{SLUG\}\}/g, county.slug)
+      .replace(/\{\{POPULATION\}\}/g, parseInt(county.population || '0').toLocaleString())
+      .replace(/\{\{MEDIAN_HOME_PRICE\}\}/g, county.median_home_price || 'varies')
+      .replace(/\{\{COUNTY_SEAT\}\}/g, county.county_seat || '')
+      .replace(/\{\{DESC\}\}/g, county.desc || '')
+      .replace(/\{\{CHALLENGES\}\}/g, county.challenges || '')
+      .replace(/\{\{CITY_LINKS\}\}/g, cityLinks);
+
+    fs.writeFileSync(path.join(COUNTIES_DIR, `sell-property-${county.slug}.html`), html, 'utf-8');
+    countyGenerated++;
+  });
+
+  // County index page
+  const countyIndexHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Property in Any Florida County - All 67 Counties | FloridaHomeOffer</title>
+  <meta name="description" content="We buy properties for cash in all 67 Florida counties. Find your county for local market info and a free cash offer.">
+  <link rel="canonical" href="${SITE_URL}/counties/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body data-page="counties" data-schema-type="home">
+  <div id="site-header"></div>
+  <section class="hero hero--compact glow-top">
+    <div class="hero__content">
+      <p class="subtitle">All 67 Florida Counties</p>
+      <h1>Sell Your Property in <span class="gold">Any Florida County</span></h1>
+      <p class="hero__sub">We buy properties for cash across every county in Florida. Select your county below.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="city-grid">
+        ${counties.map(c => `<a href="/counties/sell-property-${c.slug}.html" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="container" style="max-width:700px">
+      <div id="counties-lead-form"></div>
+    </div>
+  </section>
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/lead-form.js"></script>
+  <script src="/assets/js/schema.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() { injectLeadForm('counties-lead-form', { heading: 'Get Your Cash Offer', subtext: 'Select your county or submit details here.' }); });</script>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(COUNTIES_DIR, 'index.html'), countyIndexHTML, 'utf-8');
+  console.log(`Built ${countyGenerated} county pages + 1 index page`);
+} else {
+  console.log('County data or template not found, skipping county generation');
+}
+
+// --- SITEMAP GENERATION (all pages) ---
 const today = new Date().toISOString().split('T')[0];
 
 const corePages = [
@@ -123,31 +207,52 @@ const corePages = [
   { url: '/faq.html', priority: '0.9', freq: 'weekly' },
   { url: '/about.html', priority: '0.7', freq: 'monthly' },
   { url: '/contact.html', priority: '0.7', freq: 'monthly' },
+  { url: '/how-we-price.html', priority: '0.8', freq: 'monthly' },
+  { url: '/cash-buyers-comparison.html', priority: '0.8', freq: 'monthly' },
   { url: '/cities/', priority: '0.8', freq: 'weekly' },
+  { url: '/counties/', priority: '0.8', freq: 'weekly' },
+  { url: '/guides/', priority: '0.8', freq: 'weekly' },
+  { url: '/blog/', priority: '0.8', freq: 'weekly' },
 ];
 
 const guidePages = [
-  'sell-house-without-realtor',
-  'sell-house-as-is-florida',
-  'how-to-sell-house-fast',
-  'fsbo-vs-cash-buyer',
-  'what-is-a-cash-offer',
-  'closing-costs-florida',
-  'how-long-to-sell-house-florida',
-  'sell-house-during-divorce',
-  'sell-inherited-house-florida',
-  'sell-house-avoid-foreclosure',
-  'sell-house-probate-florida',
-  'sell-rental-property-florida',
+  'sell-house-without-realtor', 'sell-house-as-is-florida', 'how-to-sell-house-fast',
+  'fsbo-vs-cash-buyer', 'what-is-a-cash-offer', 'closing-costs-florida',
+  'how-long-to-sell-house-florida', 'sell-house-during-divorce', 'sell-inherited-house-florida',
+  'sell-house-avoid-foreclosure', 'sell-house-probate-florida', 'sell-rental-property-florida',
 ].map(slug => ({ url: `/guides/${slug}.html`, priority: '0.8', freq: 'monthly' }));
 
 const cityPages = cities.map(c => ({
-  url: `/cities/sell-house-fast-${c.slug}.html`,
-  priority: '0.7',
-  freq: 'monthly'
+  url: `/cities/sell-house-fast-${c.slug}.html`, priority: '0.7', freq: 'monthly'
 }));
 
-const allPages = [...corePages, ...guidePages, ...cityPages];
+// County pages (scan directory)
+let countyPages = [];
+if (fs.existsSync(COUNTIES_DIR)) {
+  countyPages = fs.readdirSync(COUNTIES_DIR)
+    .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .map(f => ({ url: `/counties/${f}`, priority: '0.7', freq: 'monthly' }));
+}
+
+// Situation pages (scan directory)
+const SITUATIONS_DIR = path.join(ROOT, 'situations');
+let situationPages = [];
+if (fs.existsSync(SITUATIONS_DIR)) {
+  situationPages = fs.readdirSync(SITUATIONS_DIR)
+    .filter(f => f.endsWith('.html'))
+    .map(f => ({ url: `/situations/${f}`, priority: '0.7', freq: 'monthly' }));
+}
+
+// Blog pages (scan directory)
+const BLOG_DIR = path.join(ROOT, 'blog');
+let blogPages = [];
+if (fs.existsSync(BLOG_DIR)) {
+  blogPages = fs.readdirSync(BLOG_DIR)
+    .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .map(f => ({ url: `/blog/${f}`, priority: '0.6', freq: 'weekly' }));
+}
+
+const allPages = [...corePages, ...guidePages, ...cityPages, ...countyPages, ...situationPages, ...blogPages];
 
 const sitemapXML = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

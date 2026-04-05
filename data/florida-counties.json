@@ -1,0 +1,672 @@
+[
+  {
+    "slug": "alachua",
+    "name": "Alachua County",
+    "population": "278468",
+    "median_home_price": "$280,000",
+    "county_seat": "Gainesville",
+    "cities": ["gainesville"],
+    "desc": "Alachua County is anchored by the University of Florida, creating a steady rental and resale market driven by students, faculty, and healthcare professionals at UF Health Shands Hospital. The county offers a mix of urban housing in Gainesville, rural acreage in surrounding communities, and investment properties geared toward the university population.",
+    "challenges": "University-dependent economy creates cyclical rental demand, rural properties outside Gainesville can be harder to sell due to limited services, and older housing stock near campus often requires significant updates."
+  },
+  {
+    "slug": "baker",
+    "name": "Baker County",
+    "population": "29210",
+    "median_home_price": "$210,000",
+    "county_seat": "Macclenny",
+    "cities": ["macclenny"],
+    "desc": "Baker County is a rural county west of Jacksonville offering affordable acreage and small-town living. The housing market is primarily single-family homes on larger lots, with many residents commuting to Jacksonville for employment.",
+    "challenges": "Limited local employment and commercial activity, small buyer pool for rural properties, and distance from major metro amenities can extend time on market."
+  },
+  {
+    "slug": "bay",
+    "name": "Bay County",
+    "population": "174705",
+    "median_home_price": "$295,000",
+    "county_seat": "Panama City",
+    "cities": ["panama-city"],
+    "desc": "Bay County is home to Panama City Beach and Tyndall Air Force Base, creating a real estate market driven by tourism, military, and retirement. The county experienced massive damage from Hurricane Michael in 2018 and has undergone significant rebuilding and new construction since.",
+    "challenges": "Hurricane Michael recovery still affecting some properties, military base dependency for inland areas, and seasonal tourism economy creating market fluctuations."
+  },
+  {
+    "slug": "bradford",
+    "name": "Bradford County",
+    "population": "28201",
+    "median_home_price": "$165,000",
+    "county_seat": "Starke",
+    "cities": ["starke"],
+    "desc": "Bradford County is a small rural county between Jacksonville and Gainesville with affordable housing and agricultural land. The county seat of Starke serves as a regional hub for surrounding rural communities.",
+    "challenges": "Very small buyer pool, limited local employment, and rural infrastructure challenges including well water and septic systems that can complicate sales."
+  },
+  {
+    "slug": "brevard",
+    "name": "Brevard County",
+    "population": "606612",
+    "median_home_price": "$330,000",
+    "county_seat": "Titusville",
+    "cities": ["melbourne", "palm-bay", "titusville", "cape-canaveral", "cocoa-beach", "merritt-island", "cocoa", "rockledge", "satellite-beach", "viera"],
+    "desc": "Brevard County is Florida's Space Coast, home to Kennedy Space Center, Patrick Space Force Base, and a booming aerospace industry led by SpaceX, Blue Origin, and L3Harris. The county offers 72 miles of Atlantic coastline with beach communities, mainland suburbs, and river-front properties along the Indian River Lagoon.",
+    "challenges": "Space industry employment fluctuations can affect local markets, hurricane vulnerability along the barrier island, flood zones on both the ocean and river sides, and aging condo buildings on the beachfront."
+  },
+  {
+    "slug": "broward",
+    "name": "Broward County",
+    "population": "1944375",
+    "median_home_price": "$430,000",
+    "county_seat": "Fort Lauderdale",
+    "cities": ["fort-lauderdale", "hollywood", "plantation", "davie", "sunrise", "coral-springs", "pompano-beach"],
+    "desc": "Broward County is South Florida's second-largest county, stretching from the Atlantic beaches to the Everglades. The real estate market is diverse, ranging from luxury waterfront properties in Fort Lauderdale to affordable suburban homes in western communities, with a strong condo market throughout.",
+    "challenges": "Aging condo buildings requiring milestone inspections under new Florida law, flood insurance costs for eastern properties, rising property insurance premiums, and sea level rise concerns along the coast."
+  },
+  {
+    "slug": "calhoun",
+    "name": "Calhoun County",
+    "population": "14105",
+    "median_home_price": "$130,000",
+    "county_seat": "Blountstown",
+    "cities": ["blountstown"],
+    "desc": "Calhoun County is a small rural county in the Florida Panhandle along the Apalachicola River. The real estate market is primarily affordable single-family homes and agricultural or timber land, attracting buyers seeking rural living and outdoor recreation.",
+    "challenges": "Very limited buyer pool, no major employment centers, rural infrastructure challenges, and properties damaged by Hurricane Michael in 2018 may still need repairs."
+  },
+  {
+    "slug": "charlotte",
+    "name": "Charlotte County",
+    "population": "186847",
+    "median_home_price": "$295,000",
+    "county_seat": "Punta Gorda",
+    "cities": ["port-charlotte"],
+    "desc": "Charlotte County is a Gulf Coast county centered on Charlotte Harbor, offering waterfront living and affordable retirement communities. The county was heavily impacted by Hurricane Ian in 2022, reshaping the real estate landscape with both recovery challenges and new construction opportunities.",
+    "challenges": "Hurricane Ian recovery still ongoing for many properties, aging housing stock in Port Charlotte, flood insurance requirements for waterfront and canal properties, and seasonal population swings."
+  },
+  {
+    "slug": "citrus",
+    "name": "Citrus County",
+    "population": "153843",
+    "median_home_price": "$245,000",
+    "county_seat": "Inverness",
+    "cities": ["inverness"],
+    "desc": "Citrus County is located on Florida's Nature Coast, known for manatee viewing in Crystal River and affordable retirement living. The housing market features single-family homes, waterfront properties along the Gulf, and rural acreage in the eastern sections.",
+    "challenges": "Aging population creates a steady supply of estate sales, limited high-paying employment, flood zones along the Gulf coast, and distance from major metro areas."
+  },
+  {
+    "slug": "clay",
+    "name": "Clay County",
+    "population": "219252",
+    "median_home_price": "$310,000",
+    "county_seat": "Green Cove Springs",
+    "cities": ["green-cove-springs"],
+    "desc": "Clay County is a growing suburban county south of Jacksonville, attracting families seeking affordable housing, good schools, and easy commuter access to downtown Jacksonville and the Westside employment centers. The market is primarily single-family homes in planned communities.",
+    "challenges": "Commuter dependency on Jacksonville employment, limited commercial development in some areas, and flood zones along the St. Johns River and Black Creek."
+  },
+  {
+    "slug": "collier",
+    "name": "Collier County",
+    "population": "375752",
+    "median_home_price": "$575,000",
+    "county_seat": "Naples",
+    "cities": ["naples"],
+    "desc": "Collier County encompasses Naples and Marco Island, making it one of Florida's wealthiest and most desirable real estate markets. The county offers luxury beachfront estates, golf course communities, and high-end commercial properties, with a significant portion of buyers paying cash.",
+    "challenges": "High property values create larger transaction amounts, strict HOA and community restrictions, hurricane vulnerability along the coast, and limited affordable housing options for workforce."
+  },
+  {
+    "slug": "columbia",
+    "name": "Columbia County",
+    "population": "70868",
+    "median_home_price": "$225,000",
+    "county_seat": "Lake City",
+    "cities": ["lake-city"],
+    "desc": "Columbia County is a north-central Florida county centered on Lake City, positioned at the crossroads of I-75 and I-10. The real estate market features affordable single-family homes, rural acreage, and commercial properties along the interstate corridors.",
+    "challenges": "Limited local employment beyond distribution and healthcare, small buyer pool, and rural properties can have well and septic issues that complicate sales."
+  },
+  {
+    "slug": "desoto",
+    "name": "DeSoto County",
+    "population": "37371",
+    "median_home_price": "$205,000",
+    "county_seat": "Arcadia",
+    "cities": ["arcadia"],
+    "desc": "DeSoto County is a small agricultural county in south-central Florida, known for its citrus groves and cattle ranches. The county seat of Arcadia has a charming antique district, and the housing market offers affordable homes and large agricultural parcels.",
+    "challenges": "Very small buyer pool, agriculture-dependent economy, limited commercial development, and Hurricane Ian caused significant damage to the area in 2022."
+  },
+  {
+    "slug": "dixie",
+    "name": "Dixie County",
+    "population": "16826",
+    "median_home_price": "$145,000",
+    "county_seat": "Cross City",
+    "cities": ["cross-city"],
+    "desc": "Dixie County is one of Florida's least populated counties, located on the Gulf Coast in the Big Bend region. The real estate market consists primarily of affordable rural homes, fishing properties, and timber land, attracting buyers seeking solitude and outdoor recreation.",
+    "challenges": "Extremely small buyer pool, limited infrastructure and services, no major employment centers, and Gulf coast flood risk in western sections."
+  },
+  {
+    "slug": "duval",
+    "name": "Duval County",
+    "population": "995567",
+    "median_home_price": "$310,000",
+    "county_seat": "Jacksonville",
+    "cities": ["jacksonville"],
+    "desc": "Duval County is coextensive with the City of Jacksonville, making it the largest city by land area in the contiguous United States. The real estate market spans urban downtown condos, beachfront homes along Jacksonville Beach, and suburban neighborhoods across the county's 840 square miles.",
+    "challenges": "Sprawling geography means hyperlocal market conditions vary dramatically, flood zones along the St. Johns River and coastal areas, and some neighborhoods with higher crime rates affecting property values."
+  },
+  {
+    "slug": "escambia",
+    "name": "Escambia County",
+    "population": "321680",
+    "median_home_price": "$265,000",
+    "county_seat": "Pensacola",
+    "cities": ["pensacola"],
+    "desc": "Escambia County is Florida's westernmost county, home to Pensacola and the stunning white sand beaches of Perdido Key. The real estate market is influenced by NAS Pensacola military housing demand, Gulf-front vacation properties, and an affordable cost of living that attracts retirees.",
+    "challenges": "Hurricane risk along the Gulf coast (Hurricane Sally 2020), military base dependency for housing demand, and distance from major Florida population centers limiting buyer pool."
+  },
+  {
+    "slug": "flagler",
+    "name": "Flagler County",
+    "population": "115081",
+    "median_home_price": "$320,000",
+    "county_seat": "Bunnell",
+    "cities": ["bunnell"],
+    "desc": "Flagler County is one of Florida's fastest-growing counties, anchored by the master-planned community of Palm Coast. The county offers beach access along the A1A corridor, affordable suburban homes, and proximity to both Daytona Beach and St. Augustine.",
+    "challenges": "Rapid growth outpacing infrastructure, flood zones in coastal and low-lying areas, and limited local employment requiring commutes to Daytona Beach or Jacksonville."
+  },
+  {
+    "slug": "franklin",
+    "name": "Franklin County",
+    "population": "12364",
+    "median_home_price": "$295,000",
+    "county_seat": "Apalachicola",
+    "cities": ["apalachicola"],
+    "desc": "Franklin County is a small coastal county in the Panhandle, known for Apalachicola oysters and the pristine beaches of St. George Island. The real estate market features charming historic homes in Apalachicola and vacation properties on the barrier islands.",
+    "challenges": "Very small buyer pool, limited infrastructure and services, seasonal tourism economy, and coastal flood and hurricane risk for island properties."
+  },
+  {
+    "slug": "gadsden",
+    "name": "Gadsden County",
+    "population": "44233",
+    "median_home_price": "$165,000",
+    "county_seat": "Quincy",
+    "cities": ["quincy"],
+    "desc": "Gadsden County is a rural county west of Tallahassee with some of the most affordable real estate in Florida. Many residents commute to Tallahassee for employment, and the county offers large lots and agricultural properties at budget-friendly prices.",
+    "challenges": "Limited local employment, declining population in some areas, older housing stock that may need significant repairs, and a small buyer pool."
+  },
+  {
+    "slug": "gilchrist",
+    "name": "Gilchrist County",
+    "population": "18582",
+    "median_home_price": "$195,000",
+    "county_seat": "Trenton",
+    "cities": ["trenton"],
+    "desc": "Gilchrist County is a small rural county northwest of Gainesville, known for its natural springs along the Santa Fe and Suwannee Rivers. The real estate market features affordable rural homes, agricultural land, and properties near popular spring recreation areas.",
+    "challenges": "Very small buyer pool, no major employment centers, rural infrastructure with well water and septic systems, and limited commercial activity."
+  },
+  {
+    "slug": "glades",
+    "name": "Glades County",
+    "population": "13811",
+    "median_home_price": "$170,000",
+    "county_seat": "Moore Haven",
+    "cities": ["moore-haven"],
+    "desc": "Glades County is a rural, agricultural county on the western shore of Lake Okeechobee. The real estate market is one of the most affordable in Florida, with cattle ranches, citrus groves, and modest single-family homes making up most of the inventory.",
+    "challenges": "Extremely small buyer pool, agriculture-dependent economy, flood risk from Lake Okeechobee, and very limited services and infrastructure."
+  },
+  {
+    "slug": "gulf",
+    "name": "Gulf County",
+    "population": "15143",
+    "median_home_price": "$285,000",
+    "county_seat": "Port St. Joe",
+    "cities": ["port-st-joe"],
+    "desc": "Gulf County is a small Panhandle county known for Cape San Blas, one of Florida's most beautiful and undeveloped beach areas. The real estate market includes beachfront vacation homes, waterfront properties on St. Joseph Bay, and affordable inland homes.",
+    "challenges": "Hurricane Michael devastated the area in 2018, very small buyer pool, seasonal vacation economy, and limited commercial development."
+  },
+  {
+    "slug": "hamilton",
+    "name": "Hamilton County",
+    "population": "14428",
+    "median_home_price": "$140,000",
+    "county_seat": "Jasper",
+    "cities": ["jasper"],
+    "desc": "Hamilton County is a rural north Florida county along the Georgia border, offering some of the most affordable real estate in the state. The county features the Suwannee River, agricultural land, and small-town living centered around Jasper.",
+    "challenges": "Very limited buyer pool, declining population, minimal local employment, and properties may have deferred maintenance due to lower property values."
+  },
+  {
+    "slug": "hardee",
+    "name": "Hardee County",
+    "population": "26936",
+    "median_home_price": "$185,000",
+    "county_seat": "Wauchula",
+    "cities": ["wauchula"],
+    "desc": "Hardee County is an agricultural county in central Florida known for citrus and cattle. The housing market is very affordable, with modest single-family homes and agricultural properties making up the majority of available inventory.",
+    "challenges": "Agriculture-dependent economy, very small buyer pool, limited services and infrastructure, and citrus industry decline affecting the local economy."
+  },
+  {
+    "slug": "hendry",
+    "name": "Hendry County",
+    "population": "42022",
+    "median_home_price": "$210,000",
+    "county_seat": "LaBelle",
+    "cities": ["labelle"],
+    "desc": "Hendry County is an agricultural county south of Lake Okeechobee, with sugar cane and citrus as primary industries. The county seat of LaBelle offers small-town charm and affordable housing, while Clewiston serves as a secondary commercial center.",
+    "challenges": "Agriculture-dependent economy, limited buyer pool, flood risk near Lake Okeechobee, and distance from major metro areas."
+  },
+  {
+    "slug": "hernando",
+    "name": "Hernando County",
+    "population": "194515",
+    "median_home_price": "$275,000",
+    "county_seat": "Brooksville",
+    "cities": ["brooksville"],
+    "desc": "Hernando County is a growing county north of Tampa, offering affordable suburban housing and easy access to Tampa Bay employment via the Suncoast Parkway. Spring Hill is the county's largest community, attracting retirees and families from higher-cost areas.",
+    "challenges": "Limited local employment requiring Tampa commutes, some areas with older housing stock, and sinkholes in certain geological zones."
+  },
+  {
+    "slug": "highlands",
+    "name": "Highlands County",
+    "population": "105920",
+    "median_home_price": "$220,000",
+    "county_seat": "Sebring",
+    "cities": ["sebring"],
+    "desc": "Highlands County is a central Florida county known for the Sebring International Raceway and its chain of lakes. The real estate market offers affordable lakefront homes, retirement communities, and agricultural properties at prices well below coastal Florida.",
+    "challenges": "Limited high-paying employment, aging population and housing stock, distance from major metros, and some areas with declining property values."
+  },
+  {
+    "slug": "hillsborough",
+    "name": "Hillsborough County",
+    "population": "1459762",
+    "median_home_price": "$380,000",
+    "county_seat": "Tampa",
+    "cities": ["tampa", "plant-city", "brandon", "riverview"],
+    "desc": "Hillsborough County is the Tampa Bay region's economic engine, encompassing Tampa, the Port of Tampa Bay, and major employment centers in finance, healthcare, and technology. The real estate market ranges from urban condos in downtown Tampa to suburban family homes in Brandon and rural properties in eastern Hillsborough.",
+    "challenges": "Flood zones along Tampa Bay and the Hillsborough River, traffic congestion on I-275 and I-75, rising property insurance costs, and rapid development outpacing infrastructure in southern areas."
+  },
+  {
+    "slug": "holmes",
+    "name": "Holmes County",
+    "population": "19617",
+    "median_home_price": "$145,000",
+    "county_seat": "Bonifay",
+    "cities": ["bonifay"],
+    "desc": "Holmes County is a small rural county in the western Florida Panhandle, offering very affordable housing and a quiet, agricultural lifestyle. The county is known for its rolling hills and the annual Northwest Florida Championship Rodeo.",
+    "challenges": "Very small buyer pool, limited employment and commercial activity, rural infrastructure challenges, and distance from major population centers."
+  },
+  {
+    "slug": "indian-river",
+    "name": "Indian River County",
+    "population": "159788",
+    "median_home_price": "$350,000",
+    "county_seat": "Vero Beach",
+    "cities": ["vero-beach"],
+    "desc": "Indian River County is centered on Vero Beach, known for its upscale barrier island community and strong citrus heritage. The real estate market includes luxury beachfront homes, mainland suburban neighborhoods, and agricultural properties in the western portions of the county.",
+    "challenges": "Barrier island properties face hurricane and flood risk, seasonal population swings, and the market can be slow for overpriced listings due to a smaller buyer pool than South Florida."
+  },
+  {
+    "slug": "jackson",
+    "name": "Jackson County",
+    "population": "47431",
+    "median_home_price": "$155,000",
+    "county_seat": "Marianna",
+    "cities": ["marianna"],
+    "desc": "Jackson County is a rural Panhandle county centered on Marianna, known for Florida Caverns State Park and agricultural land. The housing market is very affordable with single-family homes, farms, and rural acreage dominating the inventory.",
+    "challenges": "Limited buyer pool, agriculture-dependent economy, Hurricane Michael damage still affecting some properties, and distance from major Florida metros."
+  },
+  {
+    "slug": "jefferson",
+    "name": "Jefferson County",
+    "population": "14246",
+    "median_home_price": "$175,000",
+    "county_seat": "Monticello",
+    "cities": ["monticello"],
+    "desc": "Jefferson County is a rural county east of Tallahassee with historic Monticello as its county seat. The real estate market features affordable historic homes, plantation-style properties, and agricultural land, with many residents commuting to Tallahassee.",
+    "challenges": "Very small buyer pool, limited local employment, aging housing stock, and rural infrastructure including well water and septic systems."
+  },
+  {
+    "slug": "lafayette",
+    "name": "Lafayette County",
+    "population": "8744",
+    "median_home_price": "$135,000",
+    "county_seat": "Mayo",
+    "cities": ["mayo"],
+    "desc": "Lafayette County is Florida's least populated county, a rural area along the Suwannee River offering extremely affordable land and housing. The market is almost entirely rural homes and agricultural properties.",
+    "challenges": "Smallest population in Florida means an extremely limited buyer pool, no significant commercial development, and properties may sit on the market for extended periods."
+  },
+  {
+    "slug": "lake",
+    "name": "Lake County",
+    "population": "393515",
+    "median_home_price": "$350,000",
+    "county_seat": "Tavares",
+    "cities": ["clermont"],
+    "desc": "Lake County is one of the fastest-growing counties in the Orlando metro area, anchored by Clermont in the south and the historic lakeside towns of Mount Dora, Eustis, and Tavares in the north. The county's rolling hills and hundreds of lakes create a unique Florida landscape that attracts families and retirees.",
+    "challenges": "Rapid growth in southern Lake County outpacing infrastructure, significant commute times to Orlando, and some northern areas with slower appreciation and smaller buyer pools."
+  },
+  {
+    "slug": "lee",
+    "name": "Lee County",
+    "population": "760822",
+    "median_home_price": "$355,000",
+    "county_seat": "Fort Myers",
+    "cities": ["cape-coral", "fort-myers"],
+    "desc": "Lee County is the population center of Southwest Florida, encompassing Cape Coral, Fort Myers, and the barrier islands of Sanibel and Fort Myers Beach. The county was ground zero for Hurricane Ian in 2022, which reshaped the real estate landscape with widespread destruction and subsequent rebuilding.",
+    "challenges": "Hurricane Ian recovery ongoing for many properties, flood insurance requirements for canal and coastal properties, seasonal market fluctuations tied to snowbird population, and rising property insurance premiums."
+  },
+  {
+    "slug": "leon",
+    "name": "Leon County",
+    "population": "292198",
+    "median_home_price": "$265,000",
+    "county_seat": "Tallahassee",
+    "cities": ["tallahassee"],
+    "desc": "Leon County is home to Florida's capital city of Tallahassee, along with Florida State University and Florida A&M University. The real estate market is driven by government employment, university communities, and a stable rental market supported by the student population.",
+    "challenges": "Government and education-dependent economy limits private sector growth, seasonal student population creates rental market cycles, and some neighborhoods have aging housing stock."
+  },
+  {
+    "slug": "levy",
+    "name": "Levy County",
+    "population": "42650",
+    "median_home_price": "$195,000",
+    "county_seat": "Bronson",
+    "cities": ["bronson"],
+    "desc": "Levy County is a rural Nature Coast county with Gulf access at Cedar Key and Yankeetown. The real estate market features affordable rural homes, agricultural land, and charming coastal properties in the small fishing villages along the Gulf.",
+    "challenges": "Limited buyer pool, no major employment centers, rural infrastructure challenges, and coastal properties face flood and hurricane risk."
+  },
+  {
+    "slug": "liberty",
+    "name": "Liberty County",
+    "population": "8354",
+    "median_home_price": "$125,000",
+    "county_seat": "Bristol",
+    "cities": ["bristol"],
+    "desc": "Liberty County is one of Florida's smallest and most rural counties, located in the Panhandle along the Apalachicola River. The real estate market consists primarily of affordable rural homes, timber land, and properties near the Apalachicola National Forest.",
+    "challenges": "Extremely limited buyer pool, no significant commercial development, most properties on well water and septic systems, and very limited services."
+  },
+  {
+    "slug": "madison",
+    "name": "Madison County",
+    "population": "18557",
+    "median_home_price": "$145,000",
+    "county_seat": "Madison",
+    "cities": ["madison"],
+    "desc": "Madison County is a rural north Florida county along I-10 between Tallahassee and Jacksonville. The county seat of Madison features a charming historic downtown, and the real estate market offers affordable homes and agricultural properties.",
+    "challenges": "Small buyer pool, limited employment opportunities, aging housing stock, and rural location limits market activity."
+  },
+  {
+    "slug": "manatee",
+    "name": "Manatee County",
+    "population": "403253",
+    "median_home_price": "$400,000",
+    "county_seat": "Bradenton",
+    "cities": ["bradenton"],
+    "desc": "Manatee County encompasses Bradenton, Palmetto, and the world-famous Anna Maria Island. The real estate market offers Gulf-front vacation properties, suburban family homes in Lakewood Ranch, and agricultural land in the eastern sections of the county.",
+    "challenges": "Coastal flood risk and rising insurance costs, seasonal population swings, rapid development in Lakewood Ranch area creating traffic congestion, and some older housing stock in Bradenton."
+  },
+  {
+    "slug": "marion",
+    "name": "Marion County",
+    "population": "365579",
+    "median_home_price": "$255,000",
+    "county_seat": "Ocala",
+    "cities": ["ocala"],
+    "desc": "Marion County is known as the Horse Capital of the World, with a unique mix of equestrian estates, suburban homes in Ocala, and affordable retirement communities like On Top of the World. The county attracts equestrian professionals, retirees, and buyers seeking more space at lower prices.",
+    "challenges": "Rural economy with limited high-paying jobs outside healthcare, distance from coastal Florida, equestrian properties require specialized buyers, and some areas with sinkholes."
+  },
+  {
+    "slug": "martin",
+    "name": "Martin County",
+    "population": "161000",
+    "median_home_price": "$425,000",
+    "county_seat": "Stuart",
+    "cities": ["stuart"],
+    "desc": "Martin County is centered on Stuart, known as the Sailfish Capital of the World. The county has strict growth management policies that limit density, helping preserve property values and community character. The market includes waterfront homes, suburban communities, and agricultural properties.",
+    "challenges": "Strict growth management limits new construction and inventory, water quality issues from Lake Okeechobee discharges can impact waterfront values, and seasonal population fluctuations."
+  },
+  {
+    "slug": "miami-dade",
+    "name": "Miami-Dade County",
+    "population": "2716940",
+    "median_home_price": "$480,000",
+    "county_seat": "Miami",
+    "cities": ["miami", "hialeah", "homestead", "doral", "miami-beach"],
+    "desc": "Miami-Dade County is Florida's most populous county and one of the most active real estate markets in the world. The county offers everything from luxury waterfront condos in Miami Beach to affordable suburban homes in Homestead, with a massive international buyer pool and a cash-heavy market.",
+    "challenges": "Sea level rise concerns along the coast, aging condo buildings with expensive 40-year recertification requirements, high property insurance costs, and rapidly changing property values in gentrifying neighborhoods."
+  },
+  {
+    "slug": "monroe",
+    "name": "Monroe County",
+    "population": "82874",
+    "median_home_price": "$725,000",
+    "county_seat": "Key West",
+    "cities": ["key-west"],
+    "desc": "Monroe County encompasses the Florida Keys from Key Largo to Key West, creating one of the most unique and expensive real estate markets in Florida. The island chain offers waterfront living, vacation rentals, and commercial properties in a tropical setting with extremely limited buildable land.",
+    "challenges": "Extremely high prices and limited inventory, building height and density restrictions, hurricane evacuation requirements, flood insurance costs, and vacation rental regulation changes."
+  },
+  {
+    "slug": "nassau",
+    "name": "Nassau County",
+    "population": "88625",
+    "median_home_price": "$375,000",
+    "county_seat": "Fernandina Beach",
+    "cities": ["fernandina-beach"],
+    "desc": "Nassau County is located in northeast Florida, home to Amelia Island and the charming historic town of Fernandina Beach. The real estate market includes resort-style properties on Amelia Island, suburban homes along the A1A corridor, and rural properties in the western part of the county.",
+    "challenges": "Seasonal tourism economy on Amelia Island, limited employment requiring Jacksonville commutes, and coastal flood and hurricane risk for island properties."
+  },
+  {
+    "slug": "okaloosa",
+    "name": "Okaloosa County",
+    "population": "210738",
+    "median_home_price": "$365,000",
+    "county_seat": "Crestview",
+    "cities": ["crestview"],
+    "desc": "Okaloosa County is a Panhandle county home to Eglin Air Force Base, Hurlburt Field, and the tourist destination of Destin and Fort Walton Beach. The military presence creates strong and consistent housing demand, while the Emerald Coast beaches drive vacation property sales.",
+    "challenges": "Military base dependency for inland housing demand, seasonal tourism fluctuations for beach properties, hurricane risk, and traffic congestion on US-98 during peak season."
+  },
+  {
+    "slug": "okeechobee",
+    "name": "Okeechobee County",
+    "population": "41627",
+    "median_home_price": "$195,000",
+    "county_seat": "Okeechobee",
+    "cities": ["okeechobee"],
+    "desc": "Okeechobee County is centered on Lake Okeechobee, Florida's largest freshwater lake. The real estate market features affordable homes, cattle ranches, and fishing properties, making it popular with outdoor enthusiasts and agricultural buyers.",
+    "challenges": "Flood risk from Lake Okeechobee, limited buyer pool, agriculture-dependent economy, and distance from major population centers."
+  },
+  {
+    "slug": "orange",
+    "name": "Orange County",
+    "population": "1393452",
+    "median_home_price": "$385,000",
+    "county_seat": "Orlando",
+    "cities": ["orlando", "winter-park"],
+    "desc": "Orange County is Central Florida's economic powerhouse, home to Orlando, Walt Disney World, Universal Studios, and a rapidly growing technology and healthcare sector. The real estate market is one of Florida's most diverse, from luxury homes in Winter Park to vacation rentals near the theme parks to suburban family neighborhoods throughout.",
+    "challenges": "Tourism-dependent economy can cause market fluctuations, traffic congestion on I-4 and major highways, HOA restrictions in master-planned communities, and some older neighborhoods with aging housing stock."
+  },
+  {
+    "slug": "osceola",
+    "name": "Osceola County",
+    "population": "388656",
+    "median_home_price": "$345,000",
+    "county_seat": "Kissimmee",
+    "cities": ["kissimmee"],
+    "desc": "Osceola County is the gateway to Walt Disney World and one of Florida's fastest-growing counties. The real estate market features a massive short-term vacation rental inventory, rapidly expanding suburban communities, and growing commercial corridors along US-192 and US-441.",
+    "challenges": "Short-term rental regulation changes affecting investor properties, tourism-dependent economy, rapid growth outpacing infrastructure, and some HOA communities with rental restrictions."
+  },
+  {
+    "slug": "palm-beach",
+    "name": "Palm Beach County",
+    "population": "1492191",
+    "median_home_price": "$460,000",
+    "county_seat": "West Palm Beach",
+    "cities": ["west-palm-beach", "boca-raton", "delray-beach", "boynton-beach"],
+    "desc": "Palm Beach County is one of the wealthiest and largest counties in Florida, stretching from the ultra-luxury estates of Palm Beach Island to the agricultural communities around Lake Okeechobee. The real estate market is diverse, offering everything from waterfront mansions to affordable workforce housing in the western communities.",
+    "challenges": "Wide price range creates market segmentation challenges, flood zones in eastern coastal areas, condo milestone inspection requirements, and seasonal population fluctuations affecting market timing."
+  },
+  {
+    "slug": "pasco",
+    "name": "Pasco County",
+    "population": "553947",
+    "median_home_price": "$315,000",
+    "county_seat": "Dade City",
+    "cities": ["wesley-chapel"],
+    "desc": "Pasco County is one of the Tampa Bay area's fastest-growing counties, led by the massive development in Wesley Chapel and the Suncoast Parkway corridor. The county offers a mix of new suburban communities in the south, established retirement areas in the west, and rural properties in the east.",
+    "challenges": "Traffic congestion on SR-56 and I-75, sinkholes in certain geological zones, limited public transportation, and some older areas in the west with aging infrastructure."
+  },
+  {
+    "slug": "pinellas",
+    "name": "Pinellas County",
+    "population": "959107",
+    "median_home_price": "$365,000",
+    "county_seat": "Clearwater",
+    "cities": ["st-petersburg", "clearwater", "largo"],
+    "desc": "Pinellas County is the most densely populated county in Florida, located on a peninsula between Tampa Bay and the Gulf of Mexico. With world-famous beaches, a thriving arts scene in St. Petersburg, and limited buildable land, the county offers strong property values driven by high demand and constrained supply.",
+    "challenges": "Limited buildable land drives prices higher, flood zones along both Gulf and Bay sides, aging housing stock in many neighborhoods, and traffic congestion on the bridges connecting to Hillsborough County."
+  },
+  {
+    "slug": "polk",
+    "name": "Polk County",
+    "population": "725046",
+    "median_home_price": "$285,000",
+    "county_seat": "Bartow",
+    "cities": ["lakeland", "winter-haven"],
+    "desc": "Polk County sits at the geographic center of Florida between Tampa and Orlando along the I-4 corridor. The county is a logistics and distribution hub with affordable housing that attracts commuters to both major metros, retirees, and investors seeking cash-flowing rental properties.",
+    "challenges": "I-4 corridor traffic, flood zones around the county's many lakes, some areas with phosphate mining legacy, and rapid growth outpacing infrastructure in some communities."
+  },
+  {
+    "slug": "putnam",
+    "name": "Putnam County",
+    "population": "73268",
+    "median_home_price": "$185,000",
+    "county_seat": "Palatka",
+    "cities": ["palatka"],
+    "desc": "Putnam County is a rural county along the St. Johns River south of Jacksonville, offering some of the most affordable waterfront property in Florida. The county seat of Palatka sits on the river and has a small-town charm with a growing arts community.",
+    "challenges": "Limited local employment, smaller buyer pool, flood zones along the St. Johns River, and some areas with declining property values."
+  },
+  {
+    "slug": "santa-rosa",
+    "name": "Santa Rosa County",
+    "population": "184313",
+    "median_home_price": "$335,000",
+    "county_seat": "Milton",
+    "cities": ["milton"],
+    "desc": "Santa Rosa County is one of the fastest-growing counties in the Panhandle, offering Navarre Beach and Gulf Breeze on the coast and affordable suburban living in Milton and Pace inland. The county benefits from proximity to NAS Whiting Field and Pensacola's employment centers.",
+    "challenges": "Hurricane risk along the Gulf coast, military base dependency for some housing demand, and rapid growth in coastal areas outpacing infrastructure."
+  },
+  {
+    "slug": "sarasota",
+    "name": "Sarasota County",
+    "population": "434006",
+    "median_home_price": "$435,000",
+    "county_seat": "Sarasota",
+    "cities": ["sarasota"],
+    "desc": "Sarasota County is a Gulf Coast county known for its cultural amenities, Siesta Key beach (repeatedly ranked America's best), and an affluent, well-educated population. The real estate market includes luxury beachfront condos, mainland suburban homes, and a growing commercial sector.",
+    "challenges": "Rising property insurance costs for coastal properties, seasonal population creating market timing challenges, aging condo buildings requiring milestone inspections, and traffic congestion on US-41 and I-75."
+  },
+  {
+    "slug": "seminole",
+    "name": "Seminole County",
+    "population": "471826",
+    "median_home_price": "$375,000",
+    "county_seat": "Sanford",
+    "cities": ["sanford"],
+    "desc": "Seminole County is a suburban county north of Orlando, known for strong schools, established neighborhoods, and SunRail commuter rail access to downtown Orlando. The county seat of Sanford has a revitalized waterfront downtown on Lake Monroe, and communities like Altamonte Springs and Lake Mary offer suburban living with urban amenities.",
+    "challenges": "Limited new construction land keeping inventory tight, some flood-prone areas near Lake Monroe, and traffic congestion on I-4 and SR-417."
+  },
+  {
+    "slug": "st-johns",
+    "name": "St. Johns County",
+    "population": "273425",
+    "median_home_price": "$440,000",
+    "county_seat": "St. Augustine",
+    "cities": ["st-augustine"],
+    "desc": "St. Johns County is consistently ranked as one of Florida's best places to live, with top-rated schools, historic St. Augustine, and Ponte Vedra Beach's luxury communities. The county is one of the fastest-growing in northeast Florida, attracting families and professionals seeking quality of life.",
+    "challenges": "Higher price points than neighboring counties, flood zones in coastal and downtown St. Augustine areas, and rapid growth creating traffic congestion on US-1 and I-95."
+  },
+  {
+    "slug": "st-lucie",
+    "name": "St. Lucie County",
+    "population": "329226",
+    "median_home_price": "$325,000",
+    "county_seat": "Fort Pierce",
+    "cities": ["fort-pierce"],
+    "desc": "St. Lucie County offers the Treasure Coast lifestyle at prices significantly below neighboring Palm Beach and Martin Counties. The county seat of Fort Pierce is undergoing revitalization, while Port St. Lucie is one of Florida's fastest-growing cities with master-planned communities.",
+    "challenges": "Some neighborhoods with declining property values in older sections, mixed market conditions between east and west sides of I-95, and flood zones along the Indian River and coast."
+  },
+  {
+    "slug": "sumter",
+    "name": "Sumter County",
+    "population": "132420",
+    "median_home_price": "$310,000",
+    "county_seat": "Bushnell",
+    "cities": ["bushnell"],
+    "desc": "Sumter County is dominated by The Villages, one of the largest and fastest-growing retirement communities in the United States. The real estate market is heavily tilted toward 55+ communities, with manufactured homes, villas, and single-family homes catering to retirees.",
+    "challenges": "Market heavily dependent on The Villages retirement community, age-restricted properties limit buyer pool, and resale values can fluctuate based on Villages expansion areas."
+  },
+  {
+    "slug": "suwannee",
+    "name": "Suwannee County",
+    "population": "44417",
+    "median_home_price": "$195,000",
+    "county_seat": "Live Oak",
+    "cities": ["live-oak"],
+    "desc": "Suwannee County is a rural north Florida county known for the Suwannee River, the Spirit of the Suwannee Music Park, and affordable agricultural living. The real estate market features modest homes, farms, and river-front properties.",
+    "challenges": "Small buyer pool, limited local employment, rural infrastructure with well water and septic systems, and some flood zones along the Suwannee River."
+  },
+  {
+    "slug": "taylor",
+    "name": "Taylor County",
+    "population": "22098",
+    "median_home_price": "$155,000",
+    "county_seat": "Perry",
+    "cities": ["perry"],
+    "desc": "Taylor County is a Big Bend region county centered on Perry, historically dependent on the timber and forestry industry. The county offers affordable rural living and Gulf access at Keaton Beach and Steinhatchee, popular with fishermen.",
+    "challenges": "Limited buyer pool, timber industry decline affecting local economy, rural infrastructure challenges, and Gulf coast flood risk."
+  },
+  {
+    "slug": "union",
+    "name": "Union County",
+    "population": "15237",
+    "median_home_price": "$145,000",
+    "county_seat": "Lake Butler",
+    "cities": ["lake-butler"],
+    "desc": "Union County is one of Florida's smallest counties, a rural area between Jacksonville and Gainesville. The real estate market consists of affordable single-family homes and agricultural properties, with many residents commuting to neighboring counties for employment.",
+    "challenges": "Very small buyer pool, limited services and commercial activity, correctional facility employment dependency, and rural infrastructure."
+  },
+  {
+    "slug": "volusia",
+    "name": "Volusia County",
+    "population": "553284",
+    "median_home_price": "$305,000",
+    "county_seat": "DeLand",
+    "cities": ["daytona-beach", "deltona"],
+    "desc": "Volusia County stretches from the Atlantic coast at Daytona Beach to the suburban communities of Deltona and DeLand inland. The county offers beach-front living, motorsports tourism (Daytona International Speedway), and affordable suburban housing within commuting distance of Orlando.",
+    "challenges": "Coastal erosion and flood risk along the beach corridor, seasonal tourism economy in Daytona Beach, and some inland areas with limited commercial development."
+  },
+  {
+    "slug": "wakulla",
+    "name": "Wakulla County",
+    "population": "33739",
+    "median_home_price": "$265,000",
+    "county_seat": "Crawfordville",
+    "cities": ["crawfordville"],
+    "desc": "Wakulla County is a small coastal county south of Tallahassee, known for Wakulla Springs and the St. Marks National Wildlife Refuge. Many residents commute to Tallahassee, and the county offers affordable rural and waterfront living.",
+    "challenges": "Small buyer pool, limited commercial development, Tallahassee commute dependency, and Gulf coast flood risk in coastal sections."
+  },
+  {
+    "slug": "walton",
+    "name": "Walton County",
+    "population": "74071",
+    "median_home_price": "$495,000",
+    "county_seat": "DeFuniak Springs",
+    "cities": ["defuniak-springs"],
+    "desc": "Walton County is home to the 30A beach communities including Seaside, Rosemary Beach, and Alys Beach - some of the most valuable vacation real estate in the Panhandle. The county offers a dramatic contrast between ultra-luxury beachfront properties along 30A and affordable rural living inland near DeFuniak Springs.",
+    "challenges": "Extreme price disparity between beach and inland properties, seasonal vacation rental economy along 30A, hurricane risk, and limited infrastructure in rapidly developing coastal areas."
+  },
+  {
+    "slug": "washington",
+    "name": "Washington County",
+    "population": "25473",
+    "median_home_price": "$155,000",
+    "county_seat": "Chipley",
+    "cities": ["chipley"],
+    "desc": "Washington County is a small rural county in the Panhandle centered on Chipley at the intersection of I-10 and SR-77. The real estate market features affordable homes, agricultural land, and rural properties attracting buyers seeking low cost of living.",
+    "challenges": "Very small buyer pool, limited local employment, Hurricane Michael damage to some properties, and distance from major population centers."
+  }
+]
