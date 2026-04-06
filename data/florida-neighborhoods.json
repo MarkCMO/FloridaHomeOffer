@@ -1,0 +1,402 @@
+[
+  {
+    "slug": "wynwood",
+    "name": "Wynwood",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33127",
+    "median_home_price": "$485,000",
+    "desc": "Wynwood is one of Miami's fastest-evolving neighborhoods, known for its arts district, murals, and warehouse-to-loft conversions. Property values have surged as galleries, restaurants, and tech companies move into the area, making it a hot market for investors and homeowners looking to sell.",
+    "nearby_neighborhoods": ["brickell", "little-havana", "liberty-city"]
+  },
+  {
+    "slug": "brickell",
+    "name": "Brickell",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33131",
+    "median_home_price": "$580,000",
+    "desc": "Brickell is Miami's financial hub and one of the densest residential neighborhoods in the Southeast. High-rise condos dominate the skyline and the market moves quickly, though condo association issues and special assessments create challenges for some sellers.",
+    "nearby_neighborhoods": ["coconut-grove", "wynwood", "miami-beach-south-beach"]
+  },
+  {
+    "slug": "little-havana",
+    "name": "Little Havana",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33135",
+    "median_home_price": "$395,000",
+    "desc": "Little Havana is a culturally rich neighborhood west of downtown Miami with a mix of single-family homes, duplexes, and small commercial properties. Rising investor interest and redevelopment pressure have pushed prices up, but many older homes still need significant work.",
+    "nearby_neighborhoods": ["wynwood", "brickell", "coral-gables"]
+  },
+  {
+    "slug": "coconut-grove",
+    "name": "Coconut Grove",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33133",
+    "median_home_price": "$1,150,000",
+    "desc": "Coconut Grove is one of Miami's oldest and most established neighborhoods, featuring tree-lined streets, waterfront estates, and a mix of historic homes and modern condos. The luxury market here is competitive, but properties needing updates can sit if priced incorrectly.",
+    "nearby_neighborhoods": ["brickell", "coral-gables", "kendall"]
+  },
+  {
+    "slug": "coral-gables",
+    "name": "Coral Gables",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33134",
+    "median_home_price": "$950,000",
+    "desc": "Coral Gables is an incorporated city within the Miami metro known for its Mediterranean architecture, strict zoning codes, and high property values. Sellers sometimes struggle with the city's historic preservation requirements and lengthy permitting process.",
+    "nearby_neighborhoods": ["coconut-grove", "little-havana", "kendall"]
+  },
+  {
+    "slug": "miami-beach-south-beach",
+    "name": "Miami Beach South Beach",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33139",
+    "median_home_price": "$520,000",
+    "desc": "South Beach is the iconic oceanfront neighborhood on Miami Beach, filled with Art Deco condos, boutique hotels, and a constant stream of tourism. Condo resales can be complicated by aging building infrastructure, rising insurance costs, and recertification requirements.",
+    "nearby_neighborhoods": ["brickell", "wynwood", "doral"]
+  },
+  {
+    "slug": "kendall",
+    "name": "Kendall",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33176",
+    "median_home_price": "$475,000",
+    "desc": "Kendall is a large suburban community in southwest Miami-Dade with a mix of single-family homes, townhouses, and condos. The area attracts families looking for space and good schools, though flood zone designations and HOA restrictions can complicate traditional sales.",
+    "nearby_neighborhoods": ["coral-gables", "coconut-grove", "homestead"]
+  },
+  {
+    "slug": "doral",
+    "name": "Doral",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33178",
+    "median_home_price": "$510,000",
+    "desc": "Doral is a fast-growing incorporated city in western Miami-Dade County with a strong business presence and master-planned communities. The market is competitive for newer homes, but older properties and those in flood-prone areas often need a cash buyer to close quickly.",
+    "nearby_neighborhoods": ["miami-beach-south-beach", "kendall", "homestead"]
+  },
+  {
+    "slug": "homestead",
+    "name": "Homestead",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33030",
+    "median_home_price": "$355,000",
+    "desc": "Homestead sits at the southern edge of Miami-Dade County and offers some of the most affordable housing in the metro. Properties here are frequently affected by hurricane damage history and flood zone classifications, making cash sales an attractive option for sellers.",
+    "nearby_neighborhoods": ["kendall", "doral", "liberty-city"]
+  },
+  {
+    "slug": "liberty-city",
+    "name": "Liberty City",
+    "city": "Miami",
+    "county": "Miami-Dade County",
+    "zip": "33147",
+    "median_home_price": "$310,000",
+    "desc": "Liberty City is a historically significant neighborhood in northwest Miami-Dade undergoing gradual revitalization. Property values are rising but still below the metro average, and many homes are older construction that may need substantial renovation before a traditional sale.",
+    "nearby_neighborhoods": ["wynwood", "little-havana", "homestead"]
+  },
+  {
+    "slug": "dr-phillips",
+    "name": "Dr Phillips",
+    "city": "Orlando",
+    "county": "Orange County",
+    "zip": "32819",
+    "median_home_price": "$525,000",
+    "desc": "Dr Phillips is an upscale Orlando suburb near the Restaurant Row corridor and theme parks. The neighborhood features gated communities, lakefront properties, and strong school ratings, making it one of the most desirable areas in the Orlando metro.",
+    "nearby_neighborhoods": ["college-park", "winter-park", "celebration"]
+  },
+  {
+    "slug": "college-park",
+    "name": "College Park",
+    "city": "Orlando",
+    "county": "Orange County",
+    "zip": "32804",
+    "median_home_price": "$430,000",
+    "desc": "College Park is one of Orlando's most walkable neighborhoods, with brick-lined streets, bungalow-style homes, and a thriving local business strip along Edgewater Drive. Older homes with character sell well but those needing major updates can stall on the traditional market.",
+    "nearby_neighborhoods": ["dr-phillips", "winter-park", "altamonte-springs"]
+  },
+  {
+    "slug": "winter-park",
+    "name": "Winter Park",
+    "city": "Orlando",
+    "county": "Orange County",
+    "zip": "32789",
+    "median_home_price": "$615,000",
+    "desc": "Winter Park is an established city adjacent to Orlando known for its chain of lakes, Park Avenue shopping district, and Rollins College. The market is strong for updated properties, but homes with deferred maintenance or complicated title histories benefit from cash buyers.",
+    "nearby_neighborhoods": ["college-park", "dr-phillips", "altamonte-springs"]
+  },
+  {
+    "slug": "lake-nona",
+    "name": "Lake Nona",
+    "city": "Orlando",
+    "county": "Orange County",
+    "zip": "32827",
+    "median_home_price": "$540,000",
+    "desc": "Lake Nona is one of Central Florida's newest master-planned communities, anchored by a medical city and growing tech corridor. Most homes are relatively new construction, but sellers facing job relocations or financial changes often need the speed of a cash closing.",
+    "nearby_neighborhoods": ["celebration", "dr-phillips", "college-park"]
+  },
+  {
+    "slug": "celebration",
+    "name": "Celebration",
+    "city": "Orlando",
+    "county": "Osceola County",
+    "zip": "34747",
+    "median_home_price": "$490,000",
+    "desc": "Celebration is a master-planned community originally developed by the Walt Disney Company, featuring a walkable town center and a mix of single-family homes, townhomes, and condos. HOA fees and community deed restrictions can make traditional sales more complex.",
+    "nearby_neighborhoods": ["lake-nona", "dr-phillips", "college-park"]
+  },
+  {
+    "slug": "altamonte-springs",
+    "name": "Altamonte Springs",
+    "city": "Orlando",
+    "county": "Seminole County",
+    "zip": "32701",
+    "median_home_price": "$365,000",
+    "desc": "Altamonte Springs is a suburban city north of Orlando with affordable housing stock and convenient access to I-4. Many properties here were built in the 1970s and 1980s, and sellers with older homes that need roof or plumbing updates often find cash offers more practical.",
+    "nearby_neighborhoods": ["winter-park", "college-park", "dr-phillips"]
+  },
+  {
+    "slug": "ybor-city",
+    "name": "Ybor City",
+    "city": "Tampa",
+    "county": "Hillsborough County",
+    "zip": "33605",
+    "median_home_price": "$340,000",
+    "desc": "Ybor City is Tampa's historic Latin Quarter, known for its cigar-making heritage, nightlife, and distinctive brick architecture. The neighborhood is experiencing revitalization with new residential development, though some properties carry historic designation restrictions.",
+    "nearby_neighborhoods": ["seminole-heights", "south-tampa", "temple-terrace"]
+  },
+  {
+    "slug": "seminole-heights",
+    "name": "Seminole Heights",
+    "city": "Tampa",
+    "county": "Hillsborough County",
+    "zip": "33603",
+    "median_home_price": "$385,000",
+    "desc": "Seminole Heights is a rapidly gentrifying Tampa neighborhood with craftsman bungalows, a growing food and brewery scene, and strong community identity. Sellers of unrenovated properties in this area frequently receive cash offers from investors competing for flip opportunities.",
+    "nearby_neighborhoods": ["ybor-city", "temple-terrace", "south-tampa"]
+  },
+  {
+    "slug": "westchase",
+    "name": "Westchase",
+    "city": "Tampa",
+    "county": "Hillsborough County",
+    "zip": "33626",
+    "median_home_price": "$520,000",
+    "desc": "Westchase is a large master-planned community in northwest Hillsborough County with top-rated schools, golf courses, and well-maintained amenities. The family-oriented market is competitive, but sellers dealing with divorce, relocation, or inherited property often prefer the certainty of cash.",
+    "nearby_neighborhoods": ["south-tampa", "brandon", "seminole-heights"]
+  },
+  {
+    "slug": "south-tampa",
+    "name": "South Tampa",
+    "city": "Tampa",
+    "county": "Hillsborough County",
+    "zip": "33611",
+    "median_home_price": "$725,000",
+    "desc": "South Tampa encompasses several of the city's most desirable neighborhoods including Hyde Park, Palma Ceia, and Davis Islands. Properties here command premium prices, but flood insurance costs and older infrastructure can make traditional sales complicated for some homeowners.",
+    "nearby_neighborhoods": ["ybor-city", "seminole-heights", "westchase"]
+  },
+  {
+    "slug": "brandon",
+    "name": "Brandon",
+    "city": "Tampa",
+    "county": "Hillsborough County",
+    "zip": "33511",
+    "median_home_price": "$345,000",
+    "desc": "Brandon is a large suburban community east of Tampa with a wide range of housing from starter homes to larger estates. The area has strong demand but also a high volume of inventory, which means properties in less-than-perfect condition can take months to sell traditionally.",
+    "nearby_neighborhoods": ["westchase", "temple-terrace", "south-tampa"]
+  },
+  {
+    "slug": "temple-terrace",
+    "name": "Temple Terrace",
+    "city": "Tampa",
+    "county": "Hillsborough County",
+    "zip": "33617",
+    "median_home_price": "$325,000",
+    "desc": "Temple Terrace is a small city within the Tampa metro known for its tree-lined streets, proximity to USF, and affordable housing stock. Many homes date to the mid-20th century and sellers with properties needing updates find cash offers eliminate the uncertainty of buyer financing.",
+    "nearby_neighborhoods": ["seminole-heights", "ybor-city", "brandon"]
+  },
+  {
+    "slug": "riverside-jacksonville",
+    "name": "Riverside",
+    "city": "Jacksonville",
+    "county": "Duval County",
+    "zip": "32204",
+    "median_home_price": "$365,000",
+    "desc": "Riverside is Jacksonville's premier walkable neighborhood with a vibrant arts scene, local shops along King Street, and a mix of historic homes and modern infill. The neighborhood attracts young professionals, though properties in the historic district may face renovation restrictions.",
+    "nearby_neighborhoods": ["san-marco", "arlington-jacksonville", "southside-jacksonville"]
+  },
+  {
+    "slug": "san-marco",
+    "name": "San Marco",
+    "city": "Jacksonville",
+    "county": "Duval County",
+    "zip": "32207",
+    "median_home_price": "$390,000",
+    "desc": "San Marco is a charming Jacksonville neighborhood south of the St. Johns River, known for its fountain square, boutique shopping, and Mediterranean Revival architecture. The market is desirable but competitive, and sellers with properties needing work benefit from cash closings.",
+    "nearby_neighborhoods": ["riverside-jacksonville", "southside-jacksonville", "arlington-jacksonville"]
+  },
+  {
+    "slug": "arlington-jacksonville",
+    "name": "Arlington",
+    "city": "Jacksonville",
+    "county": "Duval County",
+    "zip": "32211",
+    "median_home_price": "$255,000",
+    "desc": "Arlington is a large neighborhood in east Jacksonville with an affordable housing stock and proximity to the beaches. Many properties were built in the 1960s through 1980s, and sellers often need cash buyers when homes require significant roof, plumbing, or structural updates.",
+    "nearby_neighborhoods": ["riverside-jacksonville", "san-marco", "southside-jacksonville"]
+  },
+  {
+    "slug": "southside-jacksonville",
+    "name": "Southside",
+    "city": "Jacksonville",
+    "county": "Duval County",
+    "zip": "32256",
+    "median_home_price": "$340,000",
+    "desc": "Southside Jacksonville is a sprawling commercial and residential area anchored by the St. Johns Town Center and major employers. The housing mix includes condos, townhomes, and single-family homes, with a steady demand from relocating professionals.",
+    "nearby_neighborhoods": ["san-marco", "arlington-jacksonville", "riverside-jacksonville"]
+  },
+  {
+    "slug": "las-olas",
+    "name": "Las Olas",
+    "city": "Fort Lauderdale",
+    "county": "Broward County",
+    "zip": "33301",
+    "median_home_price": "$780,000",
+    "desc": "Las Olas is Fort Lauderdale's most iconic boulevard, lined with shops, restaurants, and waterfront properties along canals leading to the Intracoastal. Property values are high but rising insurance costs and aging condo infrastructure create motivation for cash sales.",
+    "nearby_neighborhoods": ["victoria-park", "wilton-manors", "lauderdale-by-the-sea"]
+  },
+  {
+    "slug": "victoria-park",
+    "name": "Victoria Park",
+    "city": "Fort Lauderdale",
+    "county": "Broward County",
+    "zip": "33304",
+    "median_home_price": "$545,000",
+    "desc": "Victoria Park is a centrally located Fort Lauderdale neighborhood with a mix of mid-century single-family homes, townhomes, and small apartment buildings. The walkable layout and proximity to downtown make it popular, but older properties often need significant updates.",
+    "nearby_neighborhoods": ["las-olas", "wilton-manors", "lauderdale-by-the-sea"]
+  },
+  {
+    "slug": "wilton-manors",
+    "name": "Wilton Manors",
+    "city": "Fort Lauderdale",
+    "county": "Broward County",
+    "zip": "33305",
+    "median_home_price": "$480,000",
+    "desc": "Wilton Manors is a small incorporated city within the Fort Lauderdale metro known for its active community, waterfront properties along the Middle River, and ongoing redevelopment. The market is strong for updated homes, but properties with code issues or deferred maintenance benefit from cash offers.",
+    "nearby_neighborhoods": ["victoria-park", "las-olas", "lauderdale-by-the-sea"]
+  },
+  {
+    "slug": "lauderdale-by-the-sea",
+    "name": "Lauderdale-by-the-Sea",
+    "city": "Fort Lauderdale",
+    "county": "Broward County",
+    "zip": "33308",
+    "median_home_price": "$425,000",
+    "desc": "Lauderdale-by-the-Sea is a small beachside town north of Fort Lauderdale known for its coral reef, fishing pier, and village atmosphere. The condo market dominates here, and sellers often face challenges with aging building systems, special assessments, and rising insurance premiums.",
+    "nearby_neighborhoods": ["wilton-manors", "victoria-park", "las-olas"]
+  },
+  {
+    "slug": "cocoa-village",
+    "name": "Cocoa Village",
+    "city": "Cocoa",
+    "county": "Brevard County",
+    "zip": "32922",
+    "median_home_price": "$275,000",
+    "desc": "Cocoa Village is the historic downtown district of Cocoa, situated along the Indian River with a walkable Main Street of shops and restaurants. The area has seen renewed interest from SpaceX-driven growth, and older homes in the surrounding blocks offer opportunities for cash buyers.",
+    "nearby_neighborhoods": ["merritt-island", "eau-gallie", "downtown-melbourne"]
+  },
+  {
+    "slug": "eau-gallie",
+    "name": "Eau Gallie",
+    "city": "Melbourne",
+    "county": "Brevard County",
+    "zip": "32935",
+    "median_home_price": "$310,000",
+    "desc": "Eau Gallie is a historic arts district within Melbourne featuring a growing creative community, waterfront views, and a mix of bungalows and newer construction. Sellers with older properties in this transitioning area find cash offers appealing when renovations are not feasible.",
+    "nearby_neighborhoods": ["downtown-melbourne", "indian-harbour-beach", "cocoa-village"]
+  },
+  {
+    "slug": "downtown-melbourne",
+    "name": "Downtown Melbourne",
+    "city": "Melbourne",
+    "county": "Brevard County",
+    "zip": "32901",
+    "median_home_price": "$295,000",
+    "desc": "Downtown Melbourne is the walkable city center along the Crane Creek corridor, with a mix of historic homes, shops, and restaurants. The area is experiencing a residential resurgence, but many properties are older construction that may have title or structural issues requiring a cash buyer.",
+    "nearby_neighborhoods": ["eau-gallie", "indian-harbour-beach", "cocoa-village"]
+  },
+  {
+    "slug": "merritt-island",
+    "name": "Merritt Island",
+    "city": "Merritt Island",
+    "county": "Brevard County",
+    "zip": "32952",
+    "median_home_price": "$380,000",
+    "desc": "Merritt Island is a large unincorporated community between the Indian and Banana Rivers, best known as the home of Kennedy Space Center. Waterfront properties are common and desirable, but flood zone classifications and aging infrastructure motivate many sellers to pursue cash offers.",
+    "nearby_neighborhoods": ["cocoa-village", "indian-harbour-beach", "eau-gallie"]
+  },
+  {
+    "slug": "indian-harbour-beach",
+    "name": "Indian Harbour Beach",
+    "city": "Indian Harbour Beach",
+    "county": "Brevard County",
+    "zip": "32937",
+    "median_home_price": "$440,000",
+    "desc": "Indian Harbour Beach is a small beachside city in south Brevard County with direct Atlantic Ocean access and a quiet residential character. Properties range from 1960s ranch homes to modern waterfront builds, and sellers of older coastal homes often face insurance and wind mitigation challenges.",
+    "nearby_neighborhoods": ["eau-gallie", "downtown-melbourne", "merritt-island"]
+  },
+  {
+    "slug": "old-naples",
+    "name": "Old Naples",
+    "city": "Naples",
+    "county": "Collier County",
+    "zip": "34102",
+    "median_home_price": "$1,450,000",
+    "desc": "Old Naples is the historic core of Naples, featuring tree-lined streets, beach access, and some of the highest property values in Southwest Florida. The luxury market here is selective, and properties that need significant renovation or have complicated ownership structures benefit from cash transactions.",
+    "nearby_neighborhoods": ["fort-myers-beach", "sanibel", "cape-coral-north"]
+  },
+  {
+    "slug": "fort-myers-beach",
+    "name": "Fort Myers Beach",
+    "city": "Fort Myers",
+    "county": "Lee County",
+    "zip": "33931",
+    "median_home_price": "$385,000",
+    "desc": "Fort Myers Beach is a barrier island community on Estero Island that was heavily impacted by Hurricane Ian in 2022. The rebuilding process is ongoing, and many property owners with damaged or partially rebuilt homes are looking for cash buyers to avoid the complexities of insurance claims and contractor delays.",
+    "nearby_neighborhoods": ["sanibel", "cape-coral-north", "old-naples"]
+  },
+  {
+    "slug": "sanibel",
+    "name": "Sanibel",
+    "city": "Sanibel",
+    "county": "Lee County",
+    "zip": "33957",
+    "median_home_price": "$820,000",
+    "desc": "Sanibel Island is a renowned barrier island in Lee County known for its shell beaches, nature preserves, and limited commercial development. Post-hurricane rebuilding and strict building codes have created a complex market where cash offers provide certainty that traditional financing cannot.",
+    "nearby_neighborhoods": ["fort-myers-beach", "cape-coral-north", "old-naples"]
+  },
+  {
+    "slug": "cape-coral-north",
+    "name": "Cape Coral North",
+    "city": "Cape Coral",
+    "county": "Lee County",
+    "zip": "33993",
+    "median_home_price": "$340,000",
+    "desc": "North Cape Coral is a rapidly developing section of one of Florida's largest cities by land area, with a mix of new construction and established homes along freshwater canals. Sellers in this area sometimes face challenges with unpermitted additions, vacant lot assessments, and long days on market.",
+    "nearby_neighborhoods": ["fort-myers-beach", "lehigh-acres", "sanibel"]
+  },
+  {
+    "slug": "lehigh-acres",
+    "name": "Lehigh Acres",
+    "city": "Lehigh Acres",
+    "county": "Lee County",
+    "zip": "33936",
+    "median_home_price": "$295,000",
+    "desc": "Lehigh Acres is a large unincorporated community east of Fort Myers with some of the most affordable housing in Lee County. The area has a high volume of investor activity, and sellers of older or distressed properties frequently find that cash offers provide the fastest path to closing.",
+    "nearby_neighborhoods": ["cape-coral-north", "fort-myers-beach", "old-naples"]
+  }
+]

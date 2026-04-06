@@ -195,6 +195,89 @@ if (fs.existsSync(COUNTY_DATA_FILE) && fs.existsSync(COUNTY_TEMPLATE_FILE)) {
   console.log('County data or template not found, skipping county generation');
 }
 
+// --- NEIGHBORHOOD PAGE GENERATION ---
+const NEIGHBORHOODS_DIR = path.join(ROOT, 'neighborhoods');
+const NEIGHBORHOOD_DATA_FILE = path.join(ROOT, 'data', 'florida-neighborhoods.json');
+const NEIGHBORHOOD_TEMPLATE_FILE = path.join(ROOT, 'neighborhood-template.html');
+
+let neighborhoodGenerated = 0;
+if (fs.existsSync(NEIGHBORHOOD_DATA_FILE) && fs.existsSync(NEIGHBORHOOD_TEMPLATE_FILE)) {
+  if (!fs.existsSync(NEIGHBORHOODS_DIR)) {
+    fs.mkdirSync(NEIGHBORHOODS_DIR, { recursive: true });
+  }
+  const neighborhoods = JSON.parse(fs.readFileSync(NEIGHBORHOOD_DATA_FILE, 'utf-8'));
+  const neighborhoodTemplate = fs.readFileSync(NEIGHBORHOOD_TEMPLATE_FILE, 'utf-8');
+
+  neighborhoods.forEach(n => {
+    const nearbyLinks = (n.nearby_neighborhoods || [])
+      .map(slug => {
+        const nb = neighborhoods.find(x => x.slug === slug);
+        if (!nb) return '';
+        return `<a href="/neighborhoods/${nb.slug}.html" class="city-link">${nb.name} <span class="city-link__arrow">&#8594;</span></a>`;
+      })
+      .filter(Boolean)
+      .join('\n        ');
+
+    let html = neighborhoodTemplate
+      .replace(/\{\{NEIGHBORHOOD_NAME\}\}/g, n.name)
+      .replace(/\{\{SLUG\}\}/g, n.slug)
+      .replace(/\{\{CITY\}\}/g, n.city)
+      .replace(/\{\{COUNTY\}\}/g, n.county)
+      .replace(/\{\{ZIP\}\}/g, n.zip || '')
+      .replace(/\{\{MEDIAN_HOME_PRICE\}\}/g, n.median_home_price || 'varies')
+      .replace(/\{\{DESC\}\}/g, n.desc || '')
+      .replace(/\{\{NEARBY_LINKS\}\}/g, nearbyLinks);
+
+    fs.writeFileSync(path.join(NEIGHBORHOODS_DIR, `${n.slug}.html`), html, 'utf-8');
+    neighborhoodGenerated++;
+  });
+
+  // Neighborhood index
+  const nIndexHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Property by Neighborhood - Hyper-Local Cash Offers | FloridaHomeOffer</title>
+  <meta name="description" content="Get a cash offer for your property by neighborhood. We serve every neighborhood across Florida's major metros.">
+  <link rel="canonical" href="${SITE_URL}/neighborhoods/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body data-page="neighborhoods" data-schema-type="home">
+  <div id="site-header"></div>
+  <section class="hero hero--compact glow-top">
+    <div class="hero__content">
+      <p class="subtitle">Hyper-Local Coverage</p>
+      <h1>Sell Property in <span class="gold">Any Florida Neighborhood</span></h1>
+      <p class="hero__sub">We know every neighborhood. Find yours below for a localized cash offer.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="city-grid">
+        ${neighborhoods.map(n => `<a href="/neighborhoods/${n.slug}.html" class="city-link">${n.name}, ${n.city} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="container" style="max-width:700px"><div id="nb-lead-form"></div></div>
+  </section>
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/lead-form.js"></script>
+  <script src="/assets/js/schema.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() { injectLeadForm('nb-lead-form', { heading: 'Get Your Neighborhood Cash Offer', subtext: 'Tell us your neighborhood and get a personalized offer.' }); });</script>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(NEIGHBORHOODS_DIR, 'index.html'), nIndexHTML, 'utf-8');
+  console.log(`Built ${neighborhoodGenerated} neighborhood pages + 1 index page`);
+} else {
+  console.log('Neighborhood data or template not found, skipping');
+}
+
 // --- SITEMAP GENERATION (all pages) ---
 const today = new Date().toISOString().split('T')[0];
 
@@ -213,6 +296,7 @@ const corePages = [
   { url: '/counties/', priority: '0.8', freq: 'weekly' },
   { url: '/guides/', priority: '0.8', freq: 'weekly' },
   { url: '/blog/', priority: '0.8', freq: 'weekly' },
+  { url: '/situations/', priority: '0.7', freq: 'monthly' },
 ];
 
 const guidePages = [
@@ -252,7 +336,19 @@ if (fs.existsSync(BLOG_DIR)) {
     .map(f => ({ url: `/blog/${f}`, priority: '0.6', freq: 'weekly' }));
 }
 
-const allPages = [...corePages, ...guidePages, ...cityPages, ...countyPages, ...situationPages, ...blogPages];
+// Neighborhood pages (scan directory)
+const NEIGHBORHOODS_SCAN_DIR = path.join(ROOT, 'neighborhoods');
+let neighborhoodPages = [];
+if (fs.existsSync(NEIGHBORHOODS_SCAN_DIR)) {
+  neighborhoodPages = fs.readdirSync(NEIGHBORHOODS_SCAN_DIR)
+    .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .map(f => ({ url: `/neighborhoods/${f}`, priority: '0.6', freq: 'monthly' }));
+  if (neighborhoodPages.length) {
+    corePages.push({ url: '/neighborhoods/', priority: '0.7', freq: 'weekly' });
+  }
+}
+
+const allPages = [...corePages, ...guidePages, ...cityPages, ...countyPages, ...situationPages, ...blogPages, ...neighborhoodPages];
 
 const sitemapXML = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
