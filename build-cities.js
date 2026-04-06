@@ -278,6 +278,87 @@ if (fs.existsSync(NEIGHBORHOOD_DATA_FILE) && fs.existsSync(NEIGHBORHOOD_TEMPLATE
   console.log('Neighborhood data or template not found, skipping');
 }
 
+// --- STATE PAGE GENERATION ---
+const STATES_DIR = path.join(ROOT, 'states');
+const STATE_DATA_FILE = path.join(ROOT, 'data', 'us-states.json');
+const STATE_TEMPLATE_FILE = path.join(ROOT, 'state-template.html');
+
+let stateGenerated = 0;
+if (fs.existsSync(STATE_DATA_FILE) && fs.existsSync(STATE_TEMPLATE_FILE)) {
+  if (!fs.existsSync(STATES_DIR)) {
+    fs.mkdirSync(STATES_DIR, { recursive: true });
+  }
+  const states = JSON.parse(fs.readFileSync(STATE_DATA_FILE, 'utf-8'));
+  const stateTemplate = fs.readFileSync(STATE_TEMPLATE_FILE, 'utf-8');
+
+  states.forEach(state => {
+    const citiesLinks = (state.major_cities || [])
+      .map(city => `<li>${city}</li>`)
+      .join('');
+
+    let html = stateTemplate
+      .replace(/\{\{STATE_NAME\}\}/g, state.name)
+      .replace(/\{\{SLUG\}\}/g, state.slug)
+      .replace(/\{\{ABBREVIATION\}\}/g, state.abbreviation || '')
+      .replace(/\{\{CAPITAL\}\}/g, state.capital || '')
+      .replace(/\{\{POPULATION\}\}/g, parseInt(state.population || '0').toLocaleString())
+      .replace(/\{\{MEDIAN_HOME_PRICE\}\}/g, state.median_home_price || 'varies')
+      .replace(/\{\{AVG_DAYS\}\}/g, state.avg_days || '45')
+      .replace(/\{\{DESC\}\}/g, state.desc || '')
+      .replace(/\{\{CHALLENGES\}\}/g, state.challenges || '')
+      .replace(/\{\{LAWS\}\}/g, state.laws || '')
+      .replace(/\{\{MAJOR_CITIES_LINKS\}\}/g, citiesLinks);
+
+    fs.writeFileSync(path.join(STATES_DIR, `sell-property-${state.slug}.html`), html, 'utf-8');
+    stateGenerated++;
+  });
+
+  // State index
+  const stateIndexHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Property in Any US State - Nationwide Cash Offers | FloridaHomeOffer</title>
+  <meta name="description" content="We buy properties for cash in all 50 US states. Find your state for local market info and a free cash offer in 24 hours.">
+  <link rel="canonical" href="${SITE_URL}/states/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body data-page="states" data-schema-type="home">
+  <div id="site-header"></div>
+  <section class="hero hero--compact glow-top">
+    <div class="hero__content">
+      <p class="subtitle">Nationwide Coverage</p>
+      <h1>Sell Your Property in <span class="gold">Any US State</span></h1>
+      <p class="hero__sub">We buy properties for cash across all 50 states. Select your state for local market information and a free cash offer.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="city-grid">
+        ${states.map(s => `<a href="/states/sell-property-${s.slug}.html" class="city-link">${s.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+      </div>
+    </div>
+  </section>
+  <section class="section section--dark">
+    <div class="container" style="max-width:700px"><div id="states-lead-form"></div></div>
+  </section>
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/lead-form.js"></script>
+  <script src="/assets/js/schema.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function() { injectLeadForm('states-lead-form', { heading: 'Get Your Cash Offer', subtext: 'Select your state or submit details for a personalized offer.' }); });</script>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(STATES_DIR, 'index.html'), stateIndexHTML, 'utf-8');
+  console.log(`Built ${stateGenerated} state pages + 1 index page`);
+} else {
+  console.log('State data or template not found, skipping');
+}
+
 // --- SITEMAP GENERATION (all pages) ---
 const today = new Date().toISOString().split('T')[0];
 
@@ -297,6 +378,11 @@ const corePages = [
   { url: '/guides/', priority: '0.8', freq: 'weekly' },
   { url: '/blog/', priority: '0.8', freq: 'weekly' },
   { url: '/situations/', priority: '0.7', freq: 'monthly' },
+  { url: '/states/', priority: '0.8', freq: 'monthly' },
+  { url: '/case-studies/', priority: '0.7', freq: 'monthly' },
+  { url: '/closing-cost-calculator.html', priority: '0.8', freq: 'monthly' },
+  { url: '/home-value-estimator.html', priority: '0.8', freq: 'monthly' },
+  { url: '/florida-market-report.html', priority: '0.9', freq: 'quarterly' },
 ];
 
 const guidePages = [
@@ -348,7 +434,25 @@ if (fs.existsSync(NEIGHBORHOODS_SCAN_DIR)) {
   }
 }
 
-const allPages = [...corePages, ...guidePages, ...cityPages, ...countyPages, ...situationPages, ...blogPages, ...neighborhoodPages];
+// State pages (scan directory)
+const STATES_SCAN_DIR = path.join(ROOT, 'states');
+let statePages = [];
+if (fs.existsSync(STATES_SCAN_DIR)) {
+  statePages = fs.readdirSync(STATES_SCAN_DIR)
+    .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .map(f => ({ url: `/states/${f}`, priority: '0.7', freq: 'monthly' }));
+}
+
+// Case study pages (scan directory)
+const CASES_DIR = path.join(ROOT, 'case-studies');
+let casePages = [];
+if (fs.existsSync(CASES_DIR)) {
+  casePages = fs.readdirSync(CASES_DIR)
+    .filter(f => f.endsWith('.html') && f !== 'index.html')
+    .map(f => ({ url: `/case-studies/${f}`, priority: '0.6', freq: 'monthly' }));
+}
+
+const allPages = [...corePages, ...guidePages, ...cityPages, ...countyPages, ...situationPages, ...blogPages, ...neighborhoodPages, ...statePages, ...casePages];
 
 const sitemapXML = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

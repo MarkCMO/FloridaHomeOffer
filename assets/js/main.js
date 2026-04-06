@@ -87,12 +87,14 @@
           <div>
             <h4>Resources</h4>
             <ul>
-              <li><a href="/guides/sell-house-without-realtor.html">Sell Without a Realtor</a></li>
-              <li><a href="/guides/sell-house-as-is-florida.html">Sell As-Is</a></li>
-              <li><a href="/guides/how-to-sell-house-fast.html">Sell Fast</a></li>
+              <li><a href="/guides/">Seller Guides</a></li>
+              <li><a href="/situations/">Selling Situations</a></li>
+              <li><a href="/case-studies/">Success Stories</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/states/">All 50 States</a></li>
+              <li><a href="/closing-cost-calculator.html">Closing Cost Calculator</a></li>
+              <li><a href="/florida-market-report.html">FL Market Report</a></li>
               <li><a href="/faq.html">FAQ</a></li>
-              <li><a href="/about.html">About Us</a></li>
-              <li><a href="/contact.html">Contact</a></li>
             </ul>
           </div>
         </div>

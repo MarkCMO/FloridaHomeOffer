@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florida Closing Cost Calculator for Sellers | FloridaHomeOffer</title>
+  <meta name="description" content="Calculate your Florida seller closing costs instantly. Doc stamps, title insurance, agent commissions, and more. Compare traditional sale vs cash buyer.">
+  <link rel="canonical" href="https://floridahomeoffer.com/closing-cost-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body data-page="closing-cost-calculator" data-schema-type="article" data-title="Florida Closing Cost Calculator for Sellers" data-author="Mark Gabrielli" data-date-published="2026-04-06">
+  <div id="site-header"></div>
+  <div class="container"><div class="breadcrumb"><a href="/">Home</a> <span>&#8250;</span> Closing Cost Calculator</div></div>
+  <section class="hero hero--compact glow-top"><div class="hero__content"><p class="subtitle">Free Seller Tool</p><h1>Florida Closing Cost <span class="gold">Calculator</span></h1><p class="hero__sub">See exactly what you will pay in closing costs when selling your Florida property - then compare to a cash offer with $0 closing costs.</p></div></section>
+
+  <section class="section"><div class="container--narrow">
+
+    <div style="background:var(--surface);border-radius:12px;padding:2rem;margin-bottom:3rem;">
+      <h2 style="margin-top:0;text-align:center;">Calculate Your Closing Costs</h2>
+
+      <div style="margin-bottom:1.5rem;">
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;">Sale Price ($)</label>
+        <input type="number" id="calc-price" value="300000" min="10000" step="1000" style="width:100%;padding:.75rem;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#fff;font-size:1rem;">
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;">County</label>
+        <select id="calc-county" style="width:100%;padding:.75rem;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#fff;font-size:1rem;">
+          <option value="standard">All Florida Counties (Standard Rate)</option>
+          <option value="miami-dade">Miami-Dade County (Different Rate)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;">Using a Real Estate Agent?</label>
+        <div style="display:flex;gap:1rem;">
+          <label style="cursor:pointer;"><input type="radio" name="calc-agent" value="yes" checked style="margin-right:.5rem;">Yes</label>
+          <label style="cursor:pointer;"><input type="radio" name="calc-agent" value="no" style="margin-right:.5rem;">No (FSBO)</label>
+        </div>
+      </div>
+
+      <div id="commission-row" style="margin-bottom:1.5rem;">
+        <label style="display:block;margin-bottom:.5rem;font-weight:600;">Agent Commission Rate (%)</label>
+        <input type="number" id="calc-commission" value="6" min="1" max="10" step="0.5" style="width:100%;padding:.75rem;border-radius:8px;border:1px solid #444;background:#1a1a2e;color:#fff;font-size:1rem;">
+      </div>
+
+      <button id="calc-btn" style="width:100%;padding:1rem;border-radius:8px;border:none;background:var(--gold);color:#000;font-size:1.1rem;font-weight:700;cursor:pointer;">Calculate Closing Costs</button>
+
+      <div id="calc-results" style="display:none;margin-top:2rem;">
+        <h3 style="color:var(--gold);margin-bottom:1rem;">Traditional Sale Closing Costs</h3>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr style="border-bottom:1px solid #333;"><td style="padding:.75rem 0;">Documentary Stamp Tax</td><td style="padding:.75rem 0;text-align:right;font-weight:600;" id="res-stamps">-</td></tr>
+          <tr style="border-bottom:1px solid #333;"><td style="padding:.75rem 0;">Title Insurance (estimated)</td><td style="padding:.75rem 0;text-align:right;font-weight:600;" id="res-title">-</td></tr>
+          <tr style="border-bottom:1px solid #333;" id="res-commission-row"><td style="padding:.75rem 0;">Agent Commission</td><td style="padding:.75rem 0;text-align:right;font-weight:600;" id="res-commission">-</td></tr>
+          <tr style="border-bottom:1px solid #333;"><td style="padding:.75rem 0;">Title Search and Exam</td><td style="padding:.75rem 0;text-align:right;font-weight:600;">$350</td></tr>
+          <tr style="border-bottom:1px solid #333;"><td style="padding:.75rem 0;">Recording Fees (estimated)</td><td style="padding:.75rem 0;text-align:right;font-weight:600;">$50</td></tr>
+          <tr style="border-bottom:2px solid var(--gold);"><td style="padding:.75rem 0;font-weight:700;font-size:1.1rem;">Total Closing Costs</td><td style="padding:.75rem 0;text-align:right;font-weight:700;font-size:1.1rem;color:var(--gold);" id="res-total">-</td></tr>
+        </table>
+
+        <div style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+          <div style="background:#1a1a2e;border-radius:8px;padding:1.5rem;text-align:center;">
+            <div style="font-size:.85rem;opacity:.7;margin-bottom:.5rem;">Traditional Sale - You Net</div>
+            <div style="font-size:1.5rem;font-weight:700;" id="res-net-traditional">-</div>
+          </div>
+          <div style="background:#1a1a2e;border:2px solid var(--gold);border-radius:8px;padding:1.5rem;text-align:center;">
+            <div style="font-size:.85rem;opacity:.7;margin-bottom:.5rem;">Cash Buyer - You Net</div>
+            <div style="font-size:1.5rem;font-weight:700;color:var(--gold);" id="res-net-cash">-</div>
+            <div style="font-size:.8rem;margin-top:.25rem;">$0 closing costs</div>
+          </div>
+        </div>
+
+        <p style="margin-top:1.5rem;text-align:center;font-size:.95rem;">You could save <strong id="res-savings" style="color:var(--gold);">-</strong> by selling to a cash buyer.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h2>Understanding Florida Closing Costs for Sellers</h2>
+      <p>Selling a home in Florida involves several mandatory costs that many sellers do not anticipate. Whether you are selling a house, condo, commercial property, or vacant land, closing costs reduce your net proceeds. Understanding these costs in advance helps you make informed decisions about your sale strategy.</p>
+      <p>Florida sellers typically pay between 6% and 10% of the sale price in total closing costs when using a real estate agent. Even without an agent, mandatory government fees and title costs still apply. Here is a complete breakdown of every cost you should expect.</p>
+
+      <h2>Documentary Stamp Tax (Doc Stamps)</h2>
+      <p>Florida's documentary stamp tax is the largest mandatory closing cost for sellers. It applies to every real estate transaction in the state and cannot be avoided, negotiated, or waived.</p>
+      <p>The standard rate is $0.70 per $100 of the sale price (or $7.00 per $1,000). This applies to every county in Florida except Miami-Dade. On a $300,000 sale, that is $2,100 in doc stamps alone.</p>
+      <p>Miami-Dade County has a reduced rate of $0.60 per $100 (or $6.00 per $1,000). On the same $300,000 sale, Miami-Dade sellers pay $1,800. This small difference can save sellers in Miami-Dade several hundred dollars on higher-value properties.</p>
+      <p>Documentary stamps are calculated on the full sale price rounded up to the nearest $100. They are paid at closing and remitted to the Florida Department of Revenue. There are no exemptions for residential sellers.</p>
+
+      <h2>Title Insurance</h2>
+      <p>In Florida, the seller traditionally pays for the buyer's owner's title insurance policy. This is different from many other states where the buyer covers this cost. The convention varies by county - in some South Florida counties, the buyer pays - but in most of the state, it falls on the seller.</p>
+      <p>Florida title insurance rates are set by the state and follow a promulgated rate schedule. For properties up to $100,000, the rate is $5.75 per $1,000. From $100,001 to $1,000,000, the rate drops to $5.00 per $1,000. Above $1,000,000, rates decrease further. On a $300,000 property, title insurance costs approximately $1,575.</p>
+      <p>Title insurance protects the buyer (and their lender) against defects in the title - liens, encumbrances, fraud, or errors in the public record. It is a one-time premium paid at closing.</p>
+
+      <h2>Real Estate Agent Commissions</h2>
+      <p>If you sell with a real estate agent, commissions are typically the single largest closing cost. Traditional commission structures range from 5% to 6% of the sale price, split between the listing agent and buyer's agent. On a $300,000 home, a 6% commission is $18,000.</p>
+      <p>Following recent industry changes from the NAR settlement in 2024, commission structures have become more negotiable. Some agents now offer reduced rates of 4% to 5%. However, offering too low a buyer's agent commission can reduce showing activity and extend your time on market.</p>
+      <p>If you sell For Sale By Owner (FSBO), you eliminate the listing agent commission. However, many FSBO sellers still offer 2.5% to 3% to buyer's agents to attract showings. True zero-commission sales are most common with cash buyers who do not use agents.</p>
+
+      <h2>Title Search and Exam</h2>
+      <p>Before title insurance can be issued, a title company must search public records and examine the property's chain of title. This typically costs $200 to $500 depending on the property's history and complexity. Properties with multiple owners, estates, or prior liens may require more extensive searches.</p>
+
+      <h2>Recording Fees</h2>
+      <p>The county charges a small fee to record the deed transfer and any related documents. Florida recording fees are typically $10 for the first page and $8.50 for each additional page. Most standard transactions cost $30 to $75 in recording fees.</p>
+
+      <h2>Other Potential Seller Costs</h2>
+      <p>Depending on your situation, you may face additional costs: prorated property taxes (your share through closing day), HOA transfer fees ($100 to $500), HOA estoppel letter ($250 to $500 for condos and HOA communities), outstanding liens or judgments, mortgage payoff and any prepayment penalties, survey (if required, $300 to $600), and wire transfer fees ($25 to $50).</p>
+
+      <h2>How Cash Buyers Eliminate Closing Costs</h2>
+      <p>When you sell to a cash buyer like FloridaHomeOffer, the equation changes dramatically. We cover all closing costs as part of our offer. You pay zero in doc stamps, title insurance, title search fees, recording fees, and commissions. The offer price is what you receive.</p>
+      <p>This means a cash offer of $280,000 puts $280,000 in your pocket. A traditional sale at $300,000 with a 6% commission and standard closing costs might net you only $270,000 after all deductions - and take 60 to 90 days instead of 7 to 14.</p>
+      <p>For properties that need repairs, the math becomes even more favorable. A traditional buyer will demand repair credits or a reduced price. A cash buyer purchases as-is, eliminating repair costs from your equation entirely.</p>
+
+      <h2>When Traditional Sale Wins vs When Cash Wins</h2>
+      <p>A traditional sale typically nets more money when: your property is in excellent move-in condition, you have 60 to 90 days available, the local market favors sellers, and you do not have complicating factors like probate, divorce, or liens.</p>
+      <p>A cash sale typically nets more money when: repairs are needed, you need to close quickly, the property has title complications, you are behind on mortgage payments, the property has been sitting on market, or carrying costs are eating into your equity every month.</p>
+      <p>Use the calculator above to run your specific numbers and see where you stand.</p>
+
+      <h2>County-by-County Considerations</h2>
+      <p>While doc stamp rates are consistent across Florida (except Miami-Dade), other closing costs vary by county. Property tax proration amounts differ based on local millage rates. Title company fees vary by market. Some counties have higher recording fees than others.</p>
+      <p>In South Florida (Broward, Palm Beach), the custom is often for the buyer to select the title company and pay for title insurance - reducing seller costs. In most of Central and North Florida, the seller traditionally pays. Always confirm local customs with your title company.</p>
+    </div>
+  </div></section>
+
+  <section class="section section--dark"><div class="container" style="max-width:700px"><div id="tool-lead-form"></div></div></section>
+
+  <section class="section"><div class="container--narrow">
+    <h2 class="text-center mb-4">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-item__q">How much are closing costs for sellers in Florida?</button><div class="faq-item__a"><p>Florida sellers typically pay 6% to 10% of the sale price in total closing costs, including agent commissions. Without an agent, mandatory costs (doc stamps, title insurance, recording fees) run approximately 1.5% to 2.5% of the sale price.</p></div></div>
+      <div class="faq-item"><button class="faq-item__q">Who pays closing costs in Florida?</button><div class="faq-item__a"><p>Both buyers and sellers pay closing costs in Florida. Sellers typically pay documentary stamps on the deed, title insurance for the buyer, agent commissions, and recording fees. Buyers pay for their loan-related costs, appraisal, and inspections.</p></div></div>
+      <div class="faq-item"><button class="faq-item__q">What are documentary stamps in Florida?</button><div class="faq-item__a"><p>Documentary stamps (doc stamps) are a state transfer tax charged on every real estate sale. The rate is $0.70 per $100 of sale price in all counties except Miami-Dade, which charges $0.60 per $100. This tax cannot be waived or negotiated.</p></div></div>
+      <div class="faq-item"><button class="faq-item__q">Can I avoid closing costs when selling my house?</button><div class="faq-item__a"><p>You cannot avoid mandatory government fees like doc stamps. However, selling to a cash buyer eliminates commissions and the buyer typically covers all closing costs. With FloridaHomeOffer, seller closing costs are $0.</p></div></div>
+      <div class="faq-item"><button class="faq-item__q">Why is Miami-Dade different for doc stamps?</button><div class="faq-item__a"><p>Miami-Dade County has its own surtax structure that results in a slightly lower documentary stamp rate of $0.60 per $100 compared to the statewide $0.70 per $100. This applies only to single-family residences that are the seller's homestead.</p></div></div>
+    </div>
+  </div></section>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/lead-form.js"></script>
+  <script src="/assets/js/schema.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    injectLeadForm('tool-lead-form', { heading: 'Get Your Personalized Estimate', subtext: 'Our team will analyze your property and send a cash offer within 24 hours.' });
+
+    var agentRadios = document.querySelectorAll('input[name="calc-agent"]');
+    var commissionRow = document.getElementById('commission-row');
+
+    agentRadios.forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        commissionRow.style.display = this.value === 'yes' ? 'block' : 'none';
+      });
+    });
+
+    document.getElementById('calc-btn').addEventListener('click', function() {
+      var price = parseFloat(document.getElementById('calc-price').value) || 0;
+      var county = document.getElementById('calc-county').value;
+      var usingAgent = document.querySelector('input[name="calc-agent"]:checked').value === 'yes';
+      var commissionRate = parseFloat(document.getElementById('calc-commission').value) || 6;
+
+      // Doc stamps
+      var stampRate = county === 'miami-dade' ? 0.006 : 0.007;
+      var stamps = Math.ceil(price / 100) * 100 * stampRate;
+
+      // Title insurance (Florida promulgated rates)
+      var titleIns = 0;
+      if (price <= 100000) {
+        titleIns = (price / 1000) * 5.75;
+      } else {
+        titleIns = (100000 / 1000) * 5.75 + ((Math.min(price, 1000000) - 100000) / 1000) * 5.00;
+        if (price > 1000000) {
+          titleIns += ((price - 1000000) / 1000) * 2.50;
+        }
+      }
+
+      // Commission
+      var commission = usingAgent ? price * (commissionRate / 100) : 0;
+
+      // Fixed costs
+      var titleSearch = 350;
+      var recording = 50;
+
+      var total = stamps + titleIns + commission + titleSearch + recording;
+      var netTraditional = price - total;
+      var netCash = price; // cash buyer covers all costs
+
+      function fmt(n) { return '$' + n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+      document.getElementById('res-stamps').textContent = fmt(stamps);
+      document.getElementById('res-title').textContent = fmt(titleIns);
+      document.getElementById('res-commission').textContent = fmt(commission);
+      document.getElementById('res-commission-row').style.display = usingAgent ? '' : 'none';
+      document.getElementById('res-total').textContent = fmt(total);
+      document.getElementById('res-net-traditional').textContent = fmt(netTraditional);
+      document.getElementById('res-net-cash').textContent = fmt(price);
+      document.getElementById('res-savings').textContent = fmt(total);
+      document.getElementById('calc-results').style.display = 'block';
+    });
+
+    // Auto-calculate on load
+    document.getElementById('calc-btn').click();
+  });
+  </script>
+</body>
+</html>

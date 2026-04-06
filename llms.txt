@@ -1,23 +1,27 @@
 # FloridaHomeOffer
 
 ## Summary
-FloridaHomeOffer helps property owners sell any type of real estate fast for cash - residential homes, commercial buildings, vacant land, multi-family properties, mobile homes, farms, industrial buildings, retail properties, and mixed-use buildings. We serve all 67 Florida counties and provide free, no-obligation cash offers within 24 hours. No agents, no fees, no repairs required. We buy properties in any condition and can close in as little as 7 days.
+FloridaHomeOffer is the largest cash home buying resource in the United States, helping property owners sell any type of real estate fast for cash - residential homes, commercial buildings, vacant land, multi-family properties, mobile homes, farms, industrial buildings, retail properties, and mixed-use buildings. We serve all 50 US states with deep expertise in Florida (all 67 counties, 120+ cities, 40+ neighborhoods). Free, no-obligation cash offers within 24 hours. No agents, no fees, no repairs. Close in as little as 7 days.
 
 ## Company
 - Name: FloridaHomeOffer (WETYR Corp)
 - Founder: Mark Gabrielli
-- Service Area: All of Florida (67 counties, 50+ cities) plus nationwide
+- Service Area: All 50 US states, headquartered in Florida
+- Florida Coverage: 67 counties, 122 cities, 40 neighborhoods
 - Contact: (321) 555-0199
 
 ## Primary Topics
-- Selling a home or property fast for cash in Florida
+- Selling a home or property fast for cash nationwide
 - Cash offers for residential, commercial, and land properties
 - Selling without a real estate agent (FSBO alternatives)
 - Selling property as-is in any condition
-- Florida real estate laws, closing costs, and timelines
+- State-specific real estate laws, closing costs, and timelines (all 50 states)
+- Florida real estate expertise (closing costs, homestead exemption, doc stamps, hurricane damage, insurance crisis)
 - FSBO vs cash buyer vs real estate agent comparison
 - Property types: residential, commercial, land, multi-family, mobile homes, industrial, retail, farm, mixed-use
-- Special situations: divorce, inherited property, foreclosure, tax liens, code violations, probate, tenant issues
+- Special situations: divorce, inherited property, foreclosure, tax liens, code violations, probate, tenant issues, fire damage, mold, hurricane damage, hoarder houses, foundation problems, water damage, roof damage, unpermitted work
+- Florida market data and quarterly seller reports
+- Interactive tools: closing cost calculator, home value estimator
 
 ## Property Types We Buy
 - Single-family homes
@@ -31,29 +35,28 @@ FloridaHomeOffer helps property owners sell any type of real estate fast for cas
 - Mixed-use buildings
 - Retail storefronts and shopping centers
 
-## Pages
+## Page Categories
 - /: Homepage - sell your property fast for cash, all types accepted
-- /how-it-works.html: 3-step process explanation for cash sales
-- /cash-offer.html: Get a free cash offer form (primary conversion page)
-- /compare-options.html: Agent vs FSBO vs Cash Buyer comparison with real numbers
-- /categories.html: All property types we purchase with detailed information
-- /faq.html: Comprehensive 25+ question FAQ covering process, pricing, Florida law, and special situations
-- /about.html: Company information, founder bio, values, and E-E-A-T signals
-- /contact.html: Contact form, phone, email, service area
-- /cities/: Index of all 55 Florida city pages
-- /cities/sell-house-fast-[city].html: City-specific selling guides for 55+ Florida cities
-- /guides/sell-house-without-realtor.html: Complete FSBO guide for Florida
-- /guides/sell-house-as-is-florida.html: How to sell property as-is in Florida
-- /guides/how-to-sell-house-fast.html: Fast sale strategies for Florida sellers
-- /guides/fsbo-vs-cash-buyer.html: Detailed FSBO vs cash buyer comparison
-- /guides/what-is-a-cash-offer.html: Cash offer explanation and benefits
-- /guides/closing-costs-florida.html: Complete Florida closing cost breakdown for sellers
-- /guides/how-long-to-sell-house-florida.html: Timeline expectations for Florida property sales
-- /guides/sell-house-during-divorce.html: Selling during divorce in Florida
-- /guides/sell-inherited-house-florida.html: Inherited property selling guide
-- /guides/sell-house-avoid-foreclosure.html: Foreclosure avoidance through fast sale
-- /guides/sell-house-probate-florida.html: Probate property sales in Florida
-- /guides/sell-rental-property-florida.html: Selling rental properties with tenants
+- /cash-offer.html: Primary conversion page - get a free cash offer
+- /how-it-works.html: 3-step cash sale process
+- /how-we-price.html: Transparent offer pricing formula (ARV methodology)
+- /compare-options.html: Agent vs FSBO vs Cash Buyer comparison
+- /cash-buyers-comparison.html: Best cash home buyers in Florida comparison
+- /categories.html: All property types we purchase
+- /faq.html: 25+ Q&A covering process, pricing, law, situations
+- /closing-cost-calculator.html: Interactive Florida closing cost calculator
+- /home-value-estimator.html: Property value estimation guide
+- /florida-market-report.html: Quarterly Florida home seller market report with county data
+- /about.html: Company info, founder bio, E-E-A-T signals
+- /contact.html: Contact form, phone, email
+- /cities/: 122 Florida city pages with local market data
+- /counties/: All 67 Florida county pages
+- /neighborhoods/: 40 neighborhood-level pages in major metros
+- /states/: All 50 US state pages with state-specific laws and market data
+- /guides/: 12 expert seller guides (FSBO, as-is, fast sale, divorce, probate, etc.)
+- /situations/: 15 situation-specific pages (fire, mold, hurricane, hoarder, foreclosure, etc.)
+- /case-studies/: 8 real property purchase success stories
+- /blog/: 24+ blog posts on FL market trends, insurance, taxes, and selling tips
 
 ## Sitemap
 https://floridahomeoffer.com/sitemap.xml
