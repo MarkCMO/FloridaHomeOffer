@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Lead Dashboard | FloridaHomeOffer</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body { padding: 24px; }
+    .admin-wrap { max-width: 1400px; margin: 0 auto; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(200,168,78,0.2); }
+    .admin-header h1 { font-size: 2rem; margin: 0; }
+    .admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-box { background: var(--bg-card); border: 1px solid rgba(200,168,78,0.15); border-radius: var(--radius); padding: 16px; }
+    .stat-box__num { font-family: var(--font-display); font-size: 2.4rem; color: var(--gold); line-height: 1; }
+    .stat-box__label { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+    .leads-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; }
+    .leads-table th, .leads-table td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(200,168,78,0.08); font-size: 0.88rem; }
+    .leads-table th { background: var(--bg-light); color: var(--gold); font-family: var(--font-display); letter-spacing: 0.04em; position: sticky; top: 0; }
+    .leads-table tbody tr:hover { background: var(--bg-card-hover); }
+    .lead-status { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .lead-status--new { background: rgba(34,197,94,0.15); color: #22C55E; }
+    .lead-status--contacted { background: rgba(200,168,78,0.15); color: var(--gold); }
+    .lead-status--qualified { background: rgba(99,102,241,0.15); color: #818cf8; }
+    .lead-status--closed { background: rgba(107,114,128,0.15); color: var(--gray-300); }
+    .lead-status--dead { background: rgba(239,68,68,0.15); color: #EF4444; }
+    .lead-action { background: var(--bg-light); border: 1px solid rgba(200,168,78,0.15); border-radius: var(--radius); padding: 4px 8px; color: var(--gold); font-size: 0.78rem; cursor: pointer; margin-right: 4px; }
+    .lead-action:hover { background: var(--gold); color: var(--bg); }
+    .auth-screen { max-width: 400px; margin: 80px auto; background: var(--bg-card); padding: 40px; border-radius: var(--radius-lg); border-top: 4px solid var(--gold); }
+    .auth-screen input { width: 100%; padding: 12px; background: var(--bg-light); border: 1px solid rgba(200,168,78,0.15); border-radius: var(--radius); color: var(--white); margin-bottom: 16px; font-size: 1rem; }
+    .auth-screen button { width: 100%; padding: 12px; background: var(--gold); color: var(--bg); border: none; border-radius: var(--radius); font-weight: 700; cursor: pointer; font-size: 1rem; }
+    .filter-bar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 16px; background: var(--bg-card); border: 1px solid rgba(200,168,78,0.15); border-radius: var(--radius); color: var(--gray-200); font-size: 0.85rem; cursor: pointer; }
+    .filter-btn.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .lead-meta { color: var(--text-muted); font-size: 0.78rem; }
+    .copy-btn { color: var(--gold); cursor: pointer; font-size: 0.85rem; text-decoration: underline; }
+    @media (max-width: 768px) { .leads-table { font-size: 0.8rem; } .leads-table th, .leads-table td { padding: 8px 6px; } }
+  </style>
+</head>
+<body data-page="admin" data-schema-type="contact">
+  <div id="auth-screen" class="auth-screen">
+    <h2 style="font-family:var(--font-display);color:var(--gold);text-align:center;margin-bottom:24px;">Admin Access</h2>
+    <p class="text-muted" style="text-align:center;margin-bottom:24px;font-size:0.9rem;">Enter your admin token to view leads.</p>
+    <input type="password" id="token-input" placeholder="Admin token" autocomplete="current-password">
+    <button id="login-btn">Access Dashboard</button>
+    <p id="auth-error" style="color:#EF4444;text-align:center;margin-top:12px;display:none;">Invalid token</p>
+  </div>
+
+  <div id="dashboard" class="admin-wrap" style="display:none;">
+    <div class="admin-header">
+      <h1>Leads <span style="color:var(--gold);">Dashboard</span></h1>
+      <div>
+        <button class="lead-action" onclick="loadLeads()">Refresh</button>
+        <button class="lead-action" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="admin-stats" id="stats-grid"></div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="new">New</button>
+      <button class="filter-btn" data-filter="contacted">Contacted</button>
+      <button class="filter-btn" data-filter="qualified">Qualified</button>
+      <button class="filter-btn" data-filter="closed">Closed</button>
+      <button class="filter-btn" data-filter="dead">Dead</button>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="leads-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Timeframe</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="leads-tbody">
+          <tr><td colspan="10" style="text-align:center;padding:40px;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let allLeads = [];
+    let currentFilter = 'all';
+    let token = sessionStorage.getItem('admin_token');
+
+    function showDashboard() {
+      document.getElementById('auth-screen').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      loadLeads();
+    }
+
+    function showAuth() {
+      document.getElementById('auth-screen').style.display = 'block';
+      document.getElementById('dashboard').style.display = 'none';
+    }
+
+    document.getElementById('login-btn').addEventListener('click', function() {
+      token = document.getElementById('token-input').value.trim();
+      if (!token) return;
+      sessionStorage.setItem('admin_token', token);
+      attemptLoad();
+    });
+
+    document.getElementById('token-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') document.getElementById('login-btn').click();
+    });
+
+    function logout() {
+      sessionStorage.removeItem('admin_token');
+      token = null;
+      showAuth();
+    }
+
+    async function attemptLoad() {
+      try {
+        const res = await fetch('/.netlify/functions/admin-leads', {
+          headers: { 'X-Admin-Token': token }
+        });
+        if (res.status === 401) {
+          document.getElementById('auth-error').style.display = 'block';
+          sessionStorage.removeItem('admin_token');
+          return;
+        }
+        const data = await res.json();
+        allLeads = data.leads || [];
+        renderStats(data.stats || {});
+        renderLeads();
+        showDashboard();
+      } catch (e) {
+        alert('Error loading leads: ' + e.message);
+      }
+    }
+
+    async function loadLeads() {
+      const res = await fetch('/.netlify/functions/admin-leads', {
+        headers: { 'X-Admin-Token': token }
+      });
+      if (!res.ok) {
+        if (res.status === 401) { logout(); return; }
+        return;
+      }
+      const data = await res.json();
+      allLeads = data.leads || [];
+      renderStats(data.stats || {});
+      renderLeads();
+    }
+
+    function renderStats(stats) {
+      const grid = document.getElementById('stats-grid');
+      grid.innerHTML = `
+        <div class="stat-box"><div class="stat-box__num">${stats.total || 0}</div><div class="stat-box__label">Total Leads</div></div>
+        <div class="stat-box"><div class="stat-box__num">${stats.new || 0}</div><div class="stat-box__label">New</div></div>
+        <div class="stat-box"><div class="stat-box__num">${stats.contacted || 0}</div><div class="stat-box__label">Contacted</div></div>
+        <div class="stat-box"><div class="stat-box__num">${stats.qualified || 0}</div><div class="stat-box__label">Qualified</div></div>
+        <div class="stat-box"><div class="stat-box__num">${stats.closed || 0}</div><div class="stat-box__label">Closed</div></div>
+        <div class="stat-box"><div class="stat-box__num">${stats.last_24h || 0}</div><div class="stat-box__label">Last 24h</div></div>
+        <div class="stat-box"><div class="stat-box__num">${stats.last_7d || 0}</div><div class="stat-box__label">Last 7 days</div></div>
+      `;
+    }
+
+    function renderLeads() {
+      const tbody = document.getElementById('leads-tbody');
+      const filtered = currentFilter === 'all' ? allLeads : allLeads.filter(l => l.status === currentFilter);
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text-muted);">No leads ${currentFilter !== 'all' ? 'with status: ' + currentFilter : 'yet'}</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(l => {
+        const date = new Date(l.created_at);
+        const dateStr = date.toLocaleDateString('en-US') + ' ' + date.toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit'});
+        return `<tr>
+          <td>${dateStr}</td>
+          <td><strong>${escapeHtml(l.name || '-')}</strong></td>
+          <td><a href="tel:${l.phone}" style="color:var(--gold);">${escapeHtml(l.phone || '-')}</a></td>
+          <td><a href="mailto:${l.email}" style="color:var(--gold);">${escapeHtml(l.email || '-')}</a></td>
+          <td>${escapeHtml(l.city || '-')}</td>
+          <td><span title="${escapeHtml(l.address || '')}">${escapeHtml((l.address || '-').slice(0, 30))}</span></td>
+          <td>${escapeHtml(l.timeframe || '-')}</td>
+          <td class="lead-meta">${escapeHtml(l.source_page || '-')}${l.utm_source ? '<br>' + escapeHtml(l.utm_source) : ''}</td>
+          <td><span class="lead-status lead-status--${l.status || 'new'}">${l.status || 'new'}</span></td>
+          <td>
+            <select class="lead-action" onchange="updateStatus('${l.id}', this.value)">
+              <option value="">Status...</option>
+              <option value="new">New</option>
+              <option value="contacted">Contacted</option>
+              <option value="qualified">Qualified</option>
+              <option value="closed">Closed</option>
+              <option value="dead">Dead</option>
+            </select>
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+    }
+
+    async function updateStatus(id, status) {
+      if (!status) return;
+      try {
+        await fetch('/.netlify/functions/admin-leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
+          body: JSON.stringify({ id, status })
+        });
+        await loadLeads();
+      } catch (e) {
+        alert('Error updating: ' + e.message);
+      }
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.filter;
+        renderLeads();
+      });
+    });
+
+    // Auto-login if token exists
+    if (token) {
+      attemptLoad();
+    } else {
+      showAuth();
+    }
+  </script>
+</body>
+</html>

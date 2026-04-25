@@ -13,7 +13,7 @@ const CITIES_DIR = path.join(ROOT, 'cities');
 const DATA_FILE = path.join(ROOT, 'data', 'florida-cities.json');
 const TEMPLATE_FILE = path.join(ROOT, 'city-template.html');
 const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
-const SITE_URL = 'https://floridahomeoffer.com';
+const SITE_URL = process.env.SITE_URL || 'https://florida-home-offer.netlify.app';
 
 // Ensure cities directory exists
 if (!fs.existsSync(CITIES_DIR)) {

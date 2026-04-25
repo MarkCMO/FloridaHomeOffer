@@ -69,7 +69,7 @@ exports.handler = async (event) => {
 
     try {
       await resend.emails.send({
-        from: 'FloridaHomeOffer <noreply@' + new URL(siteUrl).hostname + '>',
+        from: (process.env.RESEND_FROM || 'FloridaHomeOffer <onboarding@resend.dev>'),
         to: lead.email,
         subject: 'We Received Your Property Info - Cash Offer Coming',
         html: `
@@ -101,7 +101,7 @@ exports.handler = async (event) => {
     if (alertEmail) {
       try {
         await resend.emails.send({
-          from: 'FloridaHomeOffer Leads <noreply@' + new URL(siteUrl).hostname + '>',
+          from: (process.env.RESEND_FROM_INTERNAL || 'FloridaHomeOffer Leads <onboarding@resend.dev>'),
           to: alertEmail,
           subject: `New ${lead.type === 'contact' ? 'Contact' : 'Lead'}: ${lead.name} - ${lead.city || 'No city'}`,
           html: `

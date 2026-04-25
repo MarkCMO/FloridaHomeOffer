@@ -1,5 +1,7 @@
 # API
 /api/lead-capture          /.netlify/functions/lead-capture  200
+/api/admin-leads           /.netlify/functions/admin-leads   200
+/admin                     /admin.html                       200
 
 # Conversion aliases
 /sell-my-house             /cash-offer.html                  301

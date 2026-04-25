@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
-    "florida-home-offer": "file:../..",
     "resend": "^3.5.0"
   }
 }
