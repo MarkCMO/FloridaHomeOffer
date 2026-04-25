@@ -41,3 +41,10 @@ CREATE POLICY "Service role full access" ON leads
 -- Allow anon to read own leads (for thank-you page confirmation)
 CREATE POLICY "Allow anon select" ON leads
   FOR SELECT USING (true);
+
+-- Allow updates (used by admin dashboard, protected by ADMIN_TOKEN at function level)
+CREATE POLICY "Allow updates" ON leads
+  FOR UPDATE USING (true);
+
+-- Add property_type column if missing
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS property_type TEXT;
