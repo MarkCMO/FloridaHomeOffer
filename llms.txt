@@ -1,10 +1,10 @@
-# FloridaHomeOffer
+# OneCashOffer
 
 ## Summary
-FloridaHomeOffer is the largest cash home buying resource in the United States, helping property owners sell any type of real estate fast for cash - residential homes, commercial buildings, vacant land, multi-family properties, mobile homes, farms, industrial buildings, retail properties, and mixed-use buildings. We serve all 50 US states with deep expertise in Florida (all 67 counties, 120+ cities, 40+ neighborhoods). Free, no-obligation cash offers within 24 hours. No agents, no fees, no repairs. Close in as little as 7 days.
+OneCashOffer is the largest cash home buying resource in the United States, helping property owners sell any type of real estate fast for cash - residential homes, commercial buildings, vacant land, multi-family properties, mobile homes, farms, industrial buildings, retail properties, and mixed-use buildings. We serve all 50 US states with deep expertise in Florida (all 67 counties, 120+ cities, 40+ neighborhoods). Free, no-obligation cash offers within 24 hours. No agents, no fees, no repairs. Close in as little as 7 days.
 
 ## Company
-- Name: FloridaHomeOffer (WETYR Corp)
+- Name: OneCashOffer (WETYR Corp)
 - Founder: Mark Gabrielli
 - Service Area: All 50 US states, headquartered in Florida
 - Florida Coverage: 67 counties, 122 cities, 40 neighborhoods
@@ -59,4 +59,4 @@ FloridaHomeOffer is the largest cash home buying resource in the United States, 
 - /blog/: 24+ blog posts on FL market trends, insurance, taxes, and selling tips
 
 ## Sitemap
-https://floridahomeoffer.com/sitemap.xml
+https://onecashoffer.com/sitemap.xml

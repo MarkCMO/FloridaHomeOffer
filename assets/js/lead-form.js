@@ -1,5 +1,5 @@
 /* ============================================
-   FloridaHomeOffer - Lead Form Component
+   OneCashOffer - Lead Form Component
    Reusable form injected on all pages
    ============================================ */
 

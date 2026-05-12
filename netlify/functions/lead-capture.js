@@ -65,17 +65,17 @@ exports.handler = async (event) => {
 
     // Send confirmation email to lead
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const siteUrl = process.env.SITE_URL || 'https://floridahomeoffer.com';
+    const siteUrl = process.env.SITE_URL || 'https://onecashoffer.com';
 
     try {
       await resend.emails.send({
-        from: (process.env.RESEND_FROM || 'FloridaHomeOffer <onboarding@resend.dev>'),
+        from: (process.env.RESEND_FROM || 'OneCashOffer <onboarding@resend.dev>'),
         to: lead.email,
         subject: 'We Received Your Property Info - Cash Offer Coming',
         html: `
           <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0B1120;color:#E0E4EC;padding:40px;border-radius:8px;">
             <div style="text-align:center;margin-bottom:24px;">
-              <h1 style="color:#C8A84E;font-size:28px;margin:0;">FloridaHomeOffer</h1>
+              <h1 style="color:#C8A84E;font-size:28px;margin:0;">OneCashOffer</h1>
             </div>
             <h2 style="color:#fff;font-size:22px;">Hi ${lead.name},</h2>
             <p>Thank you for reaching out. We received your property information and our team is already reviewing it.</p>
@@ -88,7 +88,7 @@ exports.handler = async (event) => {
             <p>Your offer will be 100% no-obligation. No pressure, no commitment - just a fair number backed by real market data.</p>
             <p style="margin-top:24px;">Need to talk sooner? Call us at <a href="tel:+13215550199" style="color:#C8A84E;">(321) 555-0199</a></p>
             <hr style="border:none;border-top:1px solid #1A2340;margin:24px 0;">
-            <p style="font-size:12px;color:#6B7280;">FloridaHomeOffer - WETYR Corp<br>This email was sent because you submitted a property inquiry on our website.</p>
+            <p style="font-size:12px;color:#6B7280;">OneCashOffer - WETYR Corp<br>This email was sent because you submitted a property inquiry on our website.</p>
           </div>
         `
       });
@@ -101,7 +101,7 @@ exports.handler = async (event) => {
     if (alertEmail) {
       try {
         await resend.emails.send({
-          from: (process.env.RESEND_FROM_INTERNAL || 'FloridaHomeOffer Leads <onboarding@resend.dev>'),
+          from: (process.env.RESEND_FROM_INTERNAL || 'OneCashOffer Leads <onboarding@resend.dev>'),
           to: alertEmail,
           subject: `New ${lead.type === 'contact' ? 'Contact' : 'Lead'}: ${lead.name} - ${lead.city || 'No city'}`,
           html: `

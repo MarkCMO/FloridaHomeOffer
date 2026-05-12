@@ -13,7 +13,7 @@ const CITIES_DIR = path.join(ROOT, 'cities');
 const DATA_FILE = path.join(ROOT, 'data', 'florida-cities.json');
 const TEMPLATE_FILE = path.join(ROOT, 'city-template.html');
 const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
-const SITE_URL = process.env.SITE_URL || 'https://florida-home-offer.netlify.app';
+const SITE_URL = process.env.SITE_URL || 'https://onecashoffer.com';
 
 // Ensure cities directory exists
 if (!fs.existsSync(CITIES_DIR)) {
@@ -68,7 +68,7 @@ const cityIndexHTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sell Your House Fast in Any Florida City - Cash Offers | FloridaHomeOffer</title>
+  <title>Sell Your House Fast in Any Florida City - Cash Offers | OneCashOffer</title>
   <meta name="description" content="We buy properties for cash in all 67 Florida counties. Find your city and get a free cash offer in 24 hours for any property type.">
   <link rel="canonical" href="${SITE_URL}/cities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,7 +153,7 @@ if (fs.existsSync(COUNTY_DATA_FILE) && fs.existsSync(COUNTY_TEMPLATE_FILE)) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sell Property in Any Florida County - All 67 Counties | FloridaHomeOffer</title>
+  <title>Sell Property in Any Florida County - All 67 Counties | OneCashOffer</title>
   <meta name="description" content="We buy properties for cash in all 67 Florida counties. Find your county for local market info and a free cash offer.">
   <link rel="canonical" href="${SITE_URL}/counties/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,7 +238,7 @@ if (fs.existsSync(NEIGHBORHOOD_DATA_FILE) && fs.existsSync(NEIGHBORHOOD_TEMPLATE
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sell Property by Neighborhood - Hyper-Local Cash Offers | FloridaHomeOffer</title>
+  <title>Sell Property by Neighborhood - Hyper-Local Cash Offers | OneCashOffer</title>
   <meta name="description" content="Get a cash offer for your property by neighborhood. We serve every neighborhood across Florida's major metros.">
   <link rel="canonical" href="${SITE_URL}/neighborhoods/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -319,7 +319,7 @@ if (fs.existsSync(STATE_DATA_FILE) && fs.existsSync(STATE_TEMPLATE_FILE)) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sell Property in Any US State - Nationwide Cash Offers | FloridaHomeOffer</title>
+  <title>Sell Property in Any US State - Nationwide Cash Offers | OneCashOffer</title>
   <meta name="description" content="We buy properties for cash in all 50 US states. Find your state for local market info and a free cash offer in 24 hours.">
   <link rel="canonical" href="${SITE_URL}/states/">
   <link rel="preconnect" href="https://fonts.googleapis.com">

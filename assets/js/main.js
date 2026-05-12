@@ -1,12 +1,12 @@
 /* ============================================
-   FloridaHomeOffer - Main JS
+   OneCashOffer - Main JS
    Nav, footer, scroll effects, FAQ toggle
    ============================================ */
 
 (function() {
   'use strict';
 
-  const BRAND = 'Florida<span>HomeOffer</span>';
+  const BRAND = 'One<span>CashOffer</span>';
   const PHONE = '(321) 555-0199';
   const PHONE_HREF = 'tel:+13215550199';
   const YEAR = new Date().getFullYear();
@@ -99,7 +99,7 @@
           </div>
         </div>
         <div class="footer__bottom">
-          <p class="footer__copy">&copy; ${YEAR} FloridaHomeOffer. All rights reserved. WETYR Corp.</p>
+          <p class="footer__copy">&copy; ${YEAR} OneCashOffer. All rights reserved. WETYR Corp.</p>
           <div class="footer__legal">
             <a href="/faq.html">FAQ</a>
             <a href="/contact.html">Contact</a>
@@ -238,8 +238,8 @@
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) desc = metaDesc.getAttribute('content') || '';
     var url = window.location.href;
-    var siteName = 'FloridaHomeOffer';
-    var ogImage = 'https://florida-home-offer.netlify.app/og-image.png';
+    var siteName = 'OneCashOffer';
+    var ogImage = 'https://onecashoffer.com/og-image.png';
 
     function addMeta(property, content) {
       if (!content || document.querySelector('meta[property="' + property + '"]')) return;

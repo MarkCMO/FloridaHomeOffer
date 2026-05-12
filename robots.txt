@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://floridahomeoffer.com/sitemap.xml
+Sitemap: https://onecashoffer.com/sitemap.xml

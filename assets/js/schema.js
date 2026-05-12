@@ -1,5 +1,5 @@
 /* ============================================
-   FloridaHomeOffer - Dynamic Schema Injection
+   OneCashOffer - Dynamic Schema Injection
    Reads data attributes from <body> to inject
    correct JSON-LD structured data per page type
    ============================================ */
@@ -7,10 +7,10 @@
 (function() {
   'use strict';
 
-  var BRAND = 'FloridaHomeOffer';
-  var URL = 'https://floridahomeoffer.com';
+  var BRAND = 'OneCashOffer';
+  var URL = 'https://onecashoffer.com';
   var PHONE = '+1-321-555-0199';
-  var DESCRIPTION = 'Florida\'s trusted home selling resource. Get a fair cash offer for your home in 24 hours - residential, commercial, land, and more. No agents, no fees, no repairs.';
+  var DESCRIPTION = 'OneCashOffer is the nationwide cash home buying network. Get a fair cash offer for your property in 24 hours - residential, commercial, land, multi-family, and more. No agents, no fees, no repairs. Serving all 50 states.';
 
   function inject(schema) {
     var script = document.createElement('script');
@@ -51,9 +51,8 @@
       'url': URL,
       'telephone': PHONE,
       'areaServed': {
-        '@type': 'State',
-        'name': 'Florida',
-        'containedInPlace': { '@type': 'Country', 'name': 'United States' }
+        '@type': 'Country',
+        'name': 'United States'
       },
       'address': {
         '@type': 'PostalAddress',

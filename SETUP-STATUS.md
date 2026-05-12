@@ -1,9 +1,9 @@
-# FloridaHomeOffer - Setup & Operations Status
+# OneCashOffer - Setup & Operations Status
 
 ## LIVE PRODUCTION URLS
-- **Site:** https://florida-home-offer.netlify.app
-- **Admin Dashboard:** https://florida-home-offer.netlify.app/admin
-- **GitHub:** https://github.com/MarkCMO/FloridaHomeOffer
+- **Site:** https://onecashoffer.com
+- **Admin Dashboard:** https://onecashoffer.com/admin
+- **GitHub:** https://github.com/MarkCMO/OneCashOffer
 
 ## ADMIN TOKEN (KEEP PRIVATE)
 ```
@@ -42,14 +42,14 @@ Without this, the admin dashboard "change status" dropdown silently fails. Lead 
 ### 2. (Optional) Verify a domain in Resend for visitor confirmation emails
 Currently the visitor confirmation email uses `onboarding@resend.dev` which only works in Resend test mode (delivers only to your Resend account email). To send confirmation emails to actual visitors:
 - Go to https://resend.com/domains
-- Verify a domain (e.g. floridahomeoffer.com when you buy it)
-- Update Netlify env var `RESEND_FROM` to use that domain (e.g. `FloridaHomeOffer <noreply@floridahomeoffer.com>`)
+- Verify a domain (e.g. onecashoffer.com when you buy it)
+- Update Netlify env var `RESEND_FROM` to use that domain (e.g. `OneCashOffer <noreply@onecashoffer.com>`)
 
 The internal alert email to LEAD_ALERT_EMAIL works fine right now because that email is your own.
 
 ## DEPLOY COMMAND
 ```bash
-cd "C:/Users/13219/Desktop/FloridaHomeOffer"
+cd "C:/Users/13219/Desktop/OneCashOffer"
 node build-cities.js
 git add -A && git commit -m "your message" && git push
 netlify deploy --prod --dir=. --site 203ce21f-373a-42aa-960d-c89d277708d1
@@ -60,10 +60,10 @@ netlify deploy --prod --dir=. --site 203ce21f-373a-42aa-960d-c89d277708d1
 - SUPABASE_SERVICE_KEY (currently anon key - works for the policies in place)
 - RESEND_API_KEY
 - LEAD_ALERT_EMAIL = marklouisgabriellijr@gmail.com
-- SITE_URL = https://florida-home-offer.netlify.app
+- SITE_URL = https://onecashoffer.com
 - ADMIN_TOKEN = 45b7da2cace3b5aa8005274112366863484b117748b31dd9
-- RESEND_FROM = FloridaHomeOffer <onboarding@resend.dev>
-- RESEND_FROM_INTERNAL = FloridaHomeOffer Leads <onboarding@resend.dev>
+- RESEND_FROM = OneCashOffer <onboarding@resend.dev>
+- RESEND_FROM_INTERNAL = OneCashOffer Leads <onboarding@resend.dev>
 
 ## SEO CHECKLIST
 - [x] Canonical URLs sitewide (all 364 pages)
