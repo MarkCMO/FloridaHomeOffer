@@ -1,6 +1,7 @@
 // /sell/{state}/{city}/{property-type} - property-type-specific city pages.
 // Adds 29,189 cities × 8 property types = 233,512 hyper-targeted URLs.
 import { CITY_INDEX } from '../../../_lib/cities-data.js';
+import { STATES } from '../../../_lib/states-data.js';
 import { renderPage, htmlResponse, notFoundResponse, titleCase } from '../../../_lib/template.js';
 
 const STATE_NAMES = {
@@ -87,6 +88,7 @@ export async function onRequest(context) {
   const city = titleCase(rec.c);
   const county = titleCase(rec.co);
   const stateName = STATE_NAMES[stateParam] || rec.n;
+  const stateInfo = STATES[stateParam] || null;
 
   const path = `/sell/${stateParam.toLowerCase()}/${citySlug}/${typeSlug}`;
   const title = `Sell ${propertyType.label} in ${city}, ${stateParam} for Cash | OneCashOffer`;
@@ -123,6 +125,38 @@ export async function onRequest(context) {
       </ul>`
     }
   ];
+
+  // === STATE-SPECIFIC AUTHORITY CONTENT (E-E-A-T) ===
+  if (stateInfo) {
+    sections.push({
+      h2: `${stateName} Real Estate Laws That Affect ${propertyType.label} Sellers`,
+      html: `<p>${stateInfo.laws}</p>
+        <p>Selling ${propertyType.label.toLowerCase()} in ${stateName} involves these same ${stateName} closing requirements. OneCashOffer handles all paperwork through a licensed ${stateName} closing agent (title company or attorney depending on the state's rule) so your transaction stays compliant with state statutes from the day you accept our offer through funding.</p>`
+    });
+    sections.push({
+      h2: `${stateName} Selling Challenges That Affect Your ${propertyType.label}`,
+      html: `<p>${stateInfo.challenges}</p>
+        <p>For ${propertyType.label.toLowerCase()} owners in ${city}, these statewide factors directly impact retail buyer demand, financing availability, and closing timelines. A direct cash sale through OneCashOffer side-steps every one of them - we underwrite from the property and the comps, not from a bank's checklist.</p>`
+    });
+    sections.push({
+      h2: `${stateName} Market Context for ${propertyType.label} in ${city}`,
+      html: `<p>${stateInfo.desc}</p>
+        <p>${stateName} statewide median home price: <strong>${stateInfo.medianHomePrice}</strong>. Statewide average days on market: <strong>${stateInfo.avgDays} days</strong>. ${propertyType.label} specifically tends to follow somewhat different supply/demand dynamics in ${city} versus single-family homes - which we account for in every offer we extend.</p>`
+    });
+  }
+
+  // Authoritative-sources section: links visitors to real .gov + industry references
+  sections.push({
+    h2: `Authoritative Resources for ${stateName} ${propertyType.label} Sellers`,
+    html: `<ul style="list-style:disc;padding-left:20px;color:var(--text-muted);margin:16px 0;">
+      <li><a href="https://www.consumer.ftc.gov/topics/buying-renting-or-selling-real-estate" rel="nofollow noopener" target="_blank">FTC - Selling Real Estate</a></li>
+      <li><a href="https://www.hud.gov/" rel="nofollow noopener" target="_blank">HUD - U.S. Housing and Urban Development</a></li>
+      <li><a href="https://www.nar.realtor/" rel="nofollow noopener" target="_blank">National Association of REALTORS&reg;</a></li>
+      <li><a href="https://www.consumerfinance.gov/owning-a-home/" rel="nofollow noopener" target="_blank">CFPB - Owning a Home</a></li>
+      <li><a href="https://www.irs.gov/taxtopics/tc701" rel="nofollow noopener" target="_blank">IRS Topic 701 - Sale of Your Home</a></li>
+    </ul>
+    <p style="font-size:0.9rem;color:var(--text-muted);">For specific legal or tax questions about selling ${propertyType.label.toLowerCase()} in ${stateName}, consult a licensed ${stateName} real estate attorney or CPA. OneCashOffer makes principal cash purchases - we are not your real estate broker, agent, or fiduciary.</p>`
+  });
 
   const faq = [
     { q: `Do you buy ${propertyType.label.toLowerCase()} in ${city}, ${stateParam}?`, a: `Yes. OneCashOffer makes cash offers on ${propertyType.label.toLowerCase()} throughout ${city}, ${stateParam} and all of ${county} County.` },
@@ -163,7 +197,16 @@ export async function onRequest(context) {
     ],
     intro,
     sections,
-    marketSnapshot: [
+    marketSnapshot: stateInfo ? [
+      ['Property Type', propertyType.label],
+      ['City', city],
+      ['State', stateName],
+      ['County', county + ' County'],
+      [`${stateName} Median Home Price`, stateInfo.medianHomePrice],
+      [`${stateName} Avg Days on Market`, stateInfo.avgDays + ' days'],
+      ['Cash Sale Close Time', '7-14 days'],
+      ['Average Offer Response', '24 hours']
+    ] : [
       ['Property Type', propertyType.label],
       ['City', city],
       ['State', stateName],
