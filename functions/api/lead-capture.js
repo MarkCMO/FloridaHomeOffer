@@ -93,13 +93,14 @@ export async function onRequest(context) {
       });
     } catch (e) { console.error('Visitor email error:', e); }
 
-    // Internal alert
-    const alertEmail = env.LEAD_ALERT_EMAIL;
-    if (alertEmail) {
+    // Internal alert - supports comma-separated list of addresses
+    const alertRaw = env.LEAD_ALERT_EMAIL || 'marklgabriellijr@gmail.com,mark@markcmo.com';
+    const alertEmails = alertRaw.split(',').map(s => s.trim()).filter(Boolean);
+    if (alertEmails.length > 0) {
       try {
         await resend.emails.send({
           from: fromInternal,
-          to: alertEmail,
+          to: alertEmails,
           subject: `New ${lead.type === 'contact' ? 'Contact' : 'Lead'}: ${lead.name} - ${lead.city || 'No city'}`,
           html: `<div style="font-family:monospace;padding:20px;">
               <h2>New ${lead.type === 'contact' ? 'Contact Submission' : 'Property Lead'}</h2>
