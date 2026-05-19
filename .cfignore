@@ -1,0 +1,17 @@
+node_modules
+netlify
+build-cities.js
+build-guides.js
+city-template.html
+county-template.html
+neighborhood-template.html
+state-template.html
+data
+SETUP-STATUS.md
+netlify.toml
+.netlify
+.git
+.gitignore
+.env.example
+supabase-migration.sql
+package-lock.json

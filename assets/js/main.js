@@ -103,6 +103,8 @@
           <div class="footer__legal">
             <a href="/faq.html">FAQ</a>
             <a href="/contact.html">Contact</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
           </div>
         </div>
       </div>

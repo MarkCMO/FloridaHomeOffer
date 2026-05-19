@@ -373,6 +373,8 @@ const corePages = [
   { url: '/contact.html', priority: '0.7', freq: 'monthly' },
   { url: '/how-we-price.html', priority: '0.8', freq: 'monthly' },
   { url: '/cash-buyers-comparison.html', priority: '0.8', freq: 'monthly' },
+  { url: '/privacy.html', priority: '0.3', freq: 'yearly' },
+  { url: '/terms.html', priority: '0.3', freq: 'yearly' },
   { url: '/cities/', priority: '0.8', freq: 'weekly' },
   { url: '/counties/', priority: '0.8', freq: 'weekly' },
   { url: '/guides/', priority: '0.8', freq: 'weekly' },
@@ -454,10 +456,17 @@ if (fs.existsSync(CASES_DIR)) {
 
 const allPages = [...corePages, ...guidePages, ...cityPages, ...countyPages, ...situationPages, ...blogPages, ...neighborhoodPages, ...statePages, ...casePages];
 
+// Cloudflare Pages serves clean URLs (no .html). Strip .html from sitemap to match canonical.
+// Directory index pages (ending in /) stay as-is.
+function canonicalize(url) {
+  if (url.endsWith('/')) return url;
+  return url.replace(/\.html$/i, '');
+}
+
 const sitemapXML = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages.map(p => `  <url>
-    <loc>${SITE_URL}${p.url}</loc>
+    <loc>${SITE_URL}${canonicalize(p.url)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${p.freq}</changefreq>
     <priority>${p.priority}</priority>

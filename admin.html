@@ -128,7 +128,7 @@
 
     async function attemptLoad() {
       try {
-        const res = await fetch('/.netlify/functions/admin-leads', {
+        const res = await fetch('/api/admin-leads', {
           headers: { 'X-Admin-Token': token }
         });
         if (res.status === 401) {
@@ -147,7 +147,7 @@
     }
 
     async function loadLeads() {
-      const res = await fetch('/.netlify/functions/admin-leads', {
+      const res = await fetch('/api/admin-leads', {
         headers: { 'X-Admin-Token': token }
       });
       if (!res.ok) {
@@ -216,7 +216,7 @@
     async function updateStatus(id, status) {
       if (!status) return;
       try {
-        await fetch('/.netlify/functions/admin-leads', {
+        await fetch('/api/admin-leads', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
           body: JSON.stringify({ id, status })

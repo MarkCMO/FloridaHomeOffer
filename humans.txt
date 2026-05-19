@@ -1,0 +1,27 @@
+/* TEAM */
+Founder: Mark Gabrielli
+Site: https://onecashoffer.com
+Contact: info@onecashoffer.com
+Phone: (321) 555-0199
+Location: Florida, United States
+Company: WETYR Corp
+
+/* THANKS */
+Title companies and real estate attorneys across the United States
+Cloudflare for fast, reliable hosting
+Supabase for our lead database
+Resend for transactional email
+Claude (Anthropic) for build assistance
+
+/* SITE */
+Last update: 2026-05-12
+Language: English
+Doctype: HTML5
+Standards: HTML5, CSS3, Schema.org (JSON-LD), llms.txt
+Components: Vanilla JS, no frameworks, minimal dependencies
+Software: Cloudflare Pages, Pages Functions
+
+/* PURPOSE */
+OneCashOffer helps property owners sell their homes, commercial properties,
+land, multi-family, and any other real estate for cash. No agents, no fees,
+no repairs. We serve all 50 states with deep Florida coverage.

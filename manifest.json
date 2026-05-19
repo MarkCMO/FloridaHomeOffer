@@ -1,7 +1,7 @@
 {
   "name": "OneCashOffer",
-  "short_name": "FLHomeOffer",
-  "description": "Sell your Florida property fast for cash. Any type, any condition.",
+  "short_name": "OneCashOffer",
+  "description": "Sell any property fast for cash, nationwide. Any type, any condition. Free 24-hour offer.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0B1120",

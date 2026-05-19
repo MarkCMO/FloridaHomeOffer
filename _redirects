@@ -1,36 +1,50 @@
-# API
-/api/lead-capture          /.netlify/functions/lead-capture  200
-/api/admin-leads           /.netlify/functions/admin-leads   200
-/admin                     /admin.html                       200
+# /api/* routes to functions/api/*.js automatically on Cloudflare Pages
+# (no rewrite needed; functions handle these paths natively)
 
-# Conversion aliases
-/sell-my-house             /cash-offer.html                  301
-/sell-my-home              /cash-offer.html                  301
-/get-offer                 /cash-offer.html                  301
-/get-cash-offer            /cash-offer.html                  301
-/free-offer                /cash-offer.html                  301
-/offer                     /cash-offer.html                  301
+# Admin: CF Pages serves admin.html at /admin natively via clean-URL handling
+# (no rewrite rule needed; rule below caused 308 loop with auto-strip)
 
-# Page aliases
+# Conversion aliases (target clean URLs; CF Pages strips .html automatically)
+/sell-my-house             /cash-offer                       301
+/sell-my-home              /cash-offer                       301
+/get-offer                 /cash-offer                       301
+/get-cash-offer            /cash-offer                       301
+/free-offer                /cash-offer                       301
+/offer                     /cash-offer                       301
+/sell                      /cash-offer                       301
+/quote                     /cash-offer                       301
+
+# Brand redirects
 /florida                   /                                 301
 /home                      /                                 301
-/how-it-works              /how-it-works.html                301
-/compare                   /compare-options.html             301
-/property-types            /categories.html                  301
-/types                     /categories.html                  301
-/pricing                   /how-we-price.html                301
-/how-we-price              /how-we-price.html                301
-/about-us                  /about.html                       301
-/faq                       /faq.html                         301
-/contact-us                /contact.html                     301
-/blog                      /blog/                            301
+/property-types            /categories                       301
+/types                     /categories                       301
+/pricing                   /how-we-price                     301
+/about-us                  /about                            301
+/contact-us                /contact                          301
+/our-team                  /about                            301
+/team                      /about                            301
+/reviews                   /case-studies/                    301
+/testimonials              /case-studies/                    301
+/sold                      /case-studies/                    301
 
-# City shorthand
-/miami                     /cities/sell-house-fast-miami.html       301
-/orlando                   /cities/sell-house-fast-orlando.html     301
-/tampa                     /cities/sell-house-fast-tampa.html       301
-/jacksonville              /cities/sell-house-fast-jacksonville.html 301
+# City shorthand (clean URL targets)
+/miami                     /cities/sell-house-fast-miami     301
+/orlando                   /cities/sell-house-fast-orlando   301
+/tampa                     /cities/sell-house-fast-tampa     301
+/jacksonville              /cities/sell-house-fast-jacksonville 301
+/fort-lauderdale           /cities/sell-house-fast-fort-lauderdale 301
+/st-petersburg             /cities/sell-house-fast-st-petersburg   301
+/cape-coral                /cities/sell-house-fast-cape-coral 301
+/naples                    /cities/sell-house-fast-naples    301
+/sarasota                  /cities/sell-house-fast-sarasota  301
 
-# Legacy/typo catches
+# Legacy directory-index catches
 /cities/index.html         /cities/                          301
+/counties/index.html       /counties/                        301
+/states/index.html         /states/                          301
+/neighborhoods/index.html  /neighborhoods/                   301
 /guides/index.html         /guides/                          301
+/situations/index.html     /situations/                      301
+/case-studies/index.html   /case-studies/                    301
+/blog/index.html           /blog/                            301
