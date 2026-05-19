@@ -1,6 +1,7 @@
 // Cloudflare Pages Function: /zip/{zip}
 // Renders a hyper-local cash-offer landing page for any US ZIP code.
 import { ZIPS } from '../_lib/zips-data.js';
+import { STATES } from '../_lib/states-data.js';
 import { renderPage, htmlResponse, notFoundResponse, titleCase } from '../_lib/template.js';
 
 const STATE_NAMES = {
@@ -25,6 +26,7 @@ export async function onRequest(context) {
   const city = titleCase(rawCity);
   const county = titleCase(rawCounty);
   const stateName = STATE_NAMES[state] || state;
+  const stateInfo = STATES[state] || null;
   const path = '/zip/' + zip;
   const title = `Sell Your House Fast in ${zip} - Cash Offer in 24 Hours | OneCashOffer`;
   const description = `We buy houses in ${city}, ${state} (ZIP ${zip}) for cash. Any condition, any situation. Free 24-hour offer. Close in 7 days. ${county} County.`;
@@ -70,6 +72,38 @@ export async function onRequest(context) {
         </ol>`
     }
   ];
+
+  // === STATE-SPECIFIC AUTHORITY SECTIONS ===
+  if (stateInfo) {
+    sections.push({
+      h2: `${stateName} Real Estate Laws & Closing Process for ZIP ${zip}`,
+      html: `<p>${stateInfo.laws}</p>
+        <p>OneCashOffer handles every ZIP ${zip} closing through a licensed ${stateName} title company or attorney (depending on the state's requirement), so you stay compliant with all local statutes. We absorb every cost the seller would normally pay - documentary stamps, recording fees, title insurance, transfer taxes.</p>`
+    });
+    sections.push({
+      h2: `Selling Challenges Specific to ${stateName} Property Owners`,
+      html: `<p>${stateInfo.challenges}</p>
+        <p>For ${city}, ${state} sellers facing any of these challenges, a cash sale through OneCashOffer eliminates the friction. We have purchased property across every county in ${stateName} and built our offer model to factor local-market realities into pricing - not just national averages.</p>`
+    });
+    sections.push({
+      h2: `${stateName} Housing Market Snapshot Around ZIP ${zip}`,
+      html: `<p>${stateInfo.desc}</p>
+        <p>Statewide median home price: <strong>${stateInfo.medianHomePrice}</strong>. Statewide average days on market for traditional listings: <strong>${stateInfo.avgDays} days</strong>. Your ZIP ${zip} (${city}, ${county} County) micro-market may differ - we pull comparable sales from the immediate area when preparing your offer.</p>`
+    });
+  }
+
+  // Authoritative sources for E-E-A-T
+  sections.push({
+    h2: `Authoritative Resources for ${stateName} Home Sellers`,
+    html: `<ul style="list-style:disc;padding-left:20px;color:var(--text-muted);margin:16px 0;">
+      <li><a href="https://www.consumer.ftc.gov/topics/buying-renting-or-selling-real-estate" rel="nofollow noopener" target="_blank">Federal Trade Commission - Selling Real Estate</a></li>
+      <li><a href="https://www.hud.gov/" rel="nofollow noopener" target="_blank">U.S. Department of Housing and Urban Development</a></li>
+      <li><a href="https://www.nar.realtor/" rel="nofollow noopener" target="_blank">National Association of REALTORS&reg;</a></li>
+      <li><a href="https://www.consumerfinance.gov/owning-a-home/" rel="nofollow noopener" target="_blank">CFPB - Owning a Home</a></li>
+      <li><a href="https://www.irs.gov/taxtopics/tc701" rel="nofollow noopener" target="_blank">IRS Topic 701 - Sale of Your Home</a></li>
+    </ul>
+    <p style="font-size:0.9rem;color:var(--text-muted);">For ${stateName}-specific legal questions about your ZIP ${zip} property sale, consult a licensed ${stateName} real estate attorney or your state's real estate commission. OneCashOffer makes principal cash purchases - we are not your real estate broker.</p>`
+  });
 
   const faq = [
     { q: `Do you buy houses in ZIP code ${zip}?`, a: `Yes. OneCashOffer buys properties in ${zip} (${city}, ${state}) and all surrounding ${county} County areas. Submit your address for a free written cash offer in 24 hours.` },

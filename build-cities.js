@@ -473,8 +473,11 @@ ${allPages.map(p => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-fs.writeFileSync(SITEMAP_FILE, sitemapXML, 'utf-8');
+// NOTE: We no longer write sitemap.xml from this script.
+// build-mega-sitemap.js is the source of truth for the sitemap index
+// (it covers static + dynamic ZIP / city / property-type URLs = 354,485 total).
+// Run `node build-mega-sitemap.js` after this script to (re)generate sitemap.xml.
 
 console.log(`Built ${generated} city pages + 1 index page`);
-console.log(`Generated sitemap.xml with ${allPages.length} URLs`);
+console.log(`(Run: node build-mega-sitemap.js to refresh sitemap.xml across all 354K URLs)`);
 console.log('Done!');

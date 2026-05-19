@@ -158,6 +158,26 @@ export function renderPage(opts) {
     });
   }
 
+  // Article schema for E-E-A-T (signals authored content with publisher)
+  const todayISO = new Date().toISOString().split('T')[0];
+  schema['@graph'].push({
+    '@type': 'Article',
+    '@id': canonical + '#article',
+    mainEntityOfPage: canonical + '#webpage',
+    headline: title,
+    description,
+    datePublished: todayISO,
+    dateModified: todayISO,
+    author: {
+      '@type': 'Person',
+      name: 'Mark Gabrielli',
+      url: SITE + '/about',
+      jobTitle: 'Founder, OneCashOffer (WETYR Corp)'
+    },
+    publisher: { '@id': SITE + '/#organization' },
+    inLanguage: 'en-US'
+  });
+
   // Market snapshot table
   const marketHtml = marketSnapshot.length > 0
     ? `<table class="market-table"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
@@ -230,6 +250,13 @@ export function renderPage(opts) {
   <div id="site-header"></div>
 
   <div class="container"><div class="breadcrumb">${breadcrumbHtml}</div></div>
+
+  <div class="container" style="padding:8px 24px;color:var(--text-muted);font-size:0.85rem;display:flex;flex-wrap:wrap;gap:16px;border-bottom:1px solid rgba(200,168,78,0.08);">
+    <span>Author: <a href="/about" style="color:var(--gold);">Mark Gabrielli</a></span>
+    <span>Updated: ${new Date().toISOString().split('T')[0]}</span>
+    <span>Reviewed by: OneCashOffer Real Estate Team</span>
+    <span>Phone: <a href="${PHONE_HREF}" style="color:var(--gold);">${PHONE}</a></span>
+  </div>
 
   <section class="hero hero--compact glow-top">
     <div class="hero__content">

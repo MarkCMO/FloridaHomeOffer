@@ -1,5 +1,6 @@
 // Shared renderer for /sell, /distressed, /premium city pages.
 import { CITY_INDEX } from './cities-data.js';
+import { STATES } from './states-data.js';
 import { renderPage, htmlResponse, notFoundResponse, titleCase } from './template.js';
 
 const STATE_NAMES = {
@@ -136,6 +137,7 @@ export async function renderCity(context, variant) {
   const city = titleCase(rec.c);
   const county = titleCase(rec.co);
   const stateName = STATE_NAMES[state] || rec.n;
+  const stateInfo = STATES[state] || null;
 
   const variantPath = { sell: 'sell', distressed: 'distressed', premium: 'premium' }[variant] || 'sell';
   const path = `/${variantPath}/${state.toLowerCase()}/${slug}`;
@@ -154,6 +156,46 @@ export async function renderCity(context, variant) {
       : `Sell your ${city}, ${state} property fast for cash. Any condition, any situation. Free 24-hour offer. Close in 7-14 days. Zero fees.`;
 
   const content = presetContent(variant, city, state, county, stateName);
+
+  // === STATE-SPECIFIC AUTHORITY CONTENT ===
+  // Injects per-state real estate law + market data + closing process info
+  // so every page has unique state-specific content that Google rewards.
+  if (stateInfo) {
+    content.sections.push({
+      h2: `${stateName} Real Estate Laws & Closing Process for ${city} Sellers`,
+      html: `<p>${stateInfo.laws}</p>
+        <p>When you sell your ${city} property through OneCashOffer, we handle all ${stateName}-specific paperwork and work with licensed local closing agents who know the state's rules inside and out. Whether ${stateName} requires an attorney at closing or operates under title-company escrow, your transaction stays compliant from start to finish.</p>`
+    });
+    content.sections.push({
+      h2: `Common Challenges Selling Real Estate in ${stateName}`,
+      html: `<p>${stateInfo.challenges}</p>
+        <p>These ${stateName} factors are exactly why cash buyers like OneCashOffer outperform traditional sales for sellers facing them. We assess risk, factor real local conditions into our offer, and close fast.</p>`
+    });
+    content.sections.push({
+      h2: `${stateName} Housing Market Context for ${city}`,
+      html: `<p>${stateInfo.desc}</p>
+        <p>${stateName} statewide median home price: <strong>${stateInfo.medianHomePrice}</strong>. Statewide average days on market: <strong>${stateInfo.avgDays} days</strong>. These are useful benchmarks, but real offers depend on your specific ${city} micro-market in ${county} County.</p>`
+    });
+    content.sections.push({
+      h2: 'How OneCashOffer Determines Your Cash Offer',
+      html: `<p>Every cash offer we extend in ${city} is built from four data inputs: (1) <strong>comparable sales</strong> within a 1-mile radius of your property over the last 6 months, weighted by similarity to your home; (2) <strong>property condition assessment</strong> based on the details you provide and a brief walkthrough; (3) <strong>${stateName} closing costs</strong> (which we absorb so your offer is your net); and (4) a modest <strong>investment margin</strong> that accounts for repairs and carrying time before resale.</p>
+        <p>We disclose the comparable sales we use. If you have better local intel - recent neighbor sales, completed renovations, ${county} County market shifts - we are open to adjusting. Many of our deals involve back-and-forth on data, and we frequently increase offers when sellers bring strong evidence.</p>`
+    });
+  }
+
+  // Authoritative-sources section: links visitors to real .gov + industry references.
+  // This signals E-E-A-T to Google: we cite trusted sources.
+  content.sections.push({
+    h2: 'Authoritative Resources for ' + stateName + ' Home Sellers',
+    html: `<ul style="list-style:disc;padding-left:20px;color:var(--text-muted);margin:16px 0;">
+      <li><a href="https://www.consumer.ftc.gov/topics/buying-renting-or-selling-real-estate" rel="nofollow noopener" target="_blank">Federal Trade Commission - Selling Real Estate</a></li>
+      <li><a href="https://www.hud.gov/" rel="nofollow noopener" target="_blank">U.S. Department of Housing and Urban Development (HUD)</a></li>
+      <li><a href="https://www.nar.realtor/" rel="nofollow noopener" target="_blank">National Association of REALTORS&reg;</a></li>
+      <li><a href="https://www.consumerfinance.gov/owning-a-home/" rel="nofollow noopener" target="_blank">CFPB - Owning a Home</a></li>
+      <li><a href="https://www.irs.gov/taxtopics/tc701" rel="nofollow noopener" target="_blank">IRS Topic 701 - Sale of Your Home (Capital Gains)</a></li>
+    </ul>
+    <p style="font-size:0.9rem;color:var(--text-muted);">We recommend consulting a licensed ${stateName} real estate attorney or CPA for any specific legal or tax questions about your property sale. OneCashOffer makes principal cash purchases - we are not your real estate agent or fiduciary.</p>`
+  });
 
   // Related links
   const zips = (rec.z || []).slice(0, 5);
@@ -183,7 +225,16 @@ export async function renderCity(context, variant) {
     ],
     intro: content.intro,
     sections: content.sections,
-    marketSnapshot: [
+    marketSnapshot: stateInfo ? [
+      ['City', city],
+      ['State', stateName],
+      ['County', county + ' County'],
+      [`${stateName} Median Home Price`, stateInfo.medianHomePrice],
+      [`${stateName} Avg Days on Market (Traditional)`, stateInfo.avgDays + ' days'],
+      ['Cash Sale Close Time', '7-14 days'],
+      ['Average Offer Response', '24 hours'],
+      ['ZIPs in this city', zips.length > 0 ? zips.join(', ') + (rec.z.length > 5 ? ' and more' : '') : 'See ZIP pages']
+    ] : [
       ['City', city],
       ['State', stateName],
       ['County', county + ' County'],
