@@ -2,6 +2,7 @@
 import { CITY_INDEX } from './cities-data.js';
 import { STATES } from './states-data.js';
 import { renderPage, htmlResponse, notFoundResponse, titleCase } from './template.js';
+import { pickDeepContent } from './deep-content.js';
 
 const STATE_NAMES = {
   AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',
@@ -182,6 +183,11 @@ export async function renderCity(context, variant) {
         <p>We disclose the comparable sales we use. If you have better local intel - recent neighbor sales, completed renovations, ${county} County market shifts - we are open to adjusting. Many of our deals involve back-and-forth on data, and we frequently increase offers when sellers bring strong evidence.</p>`
     });
   }
+
+  // === DEEP-CONTENT BLOCKS (push every page past 2,500 words) ===
+  const locInfo = { label: city, city, stateName, state, county };
+  const deepBlocks = pickDeepContent(locInfo, variant, 9);
+  for (const b of deepBlocks) content.sections.push(b);
 
   // Authoritative-sources section: links visitors to real .gov + industry references.
   // This signals E-E-A-T to Google: we cite trusted sources.

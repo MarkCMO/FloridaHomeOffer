@@ -3,6 +3,7 @@
 import { CITY_INDEX } from '../../../_lib/cities-data.js';
 import { STATES } from '../../../_lib/states-data.js';
 import { renderPage, htmlResponse, notFoundResponse, titleCase } from '../../../_lib/template.js';
+import { pickDeepContent } from '../../../_lib/deep-content.js';
 
 const STATE_NAMES = {
   AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',
@@ -144,6 +145,11 @@ export async function onRequest(context) {
         <p>${stateName} statewide median home price: <strong>${stateInfo.medianHomePrice}</strong>. Statewide average days on market: <strong>${stateInfo.avgDays} days</strong>. ${propertyType.label} specifically tends to follow somewhat different supply/demand dynamics in ${city} versus single-family homes - which we account for in every offer we extend.</p>`
     });
   }
+
+  // === DEEP-CONTENT BLOCKS (push every page past 2,500 words) ===
+  const locInfo = { label: `${propertyType.label} in ${city}`, city, stateName, state: stateParam, county };
+  const deepBlocks = pickDeepContent(locInfo, 'type', 9);
+  for (const b of deepBlocks) sections.push(b);
 
   // Authoritative-sources section: links visitors to real .gov + industry references
   sections.push({

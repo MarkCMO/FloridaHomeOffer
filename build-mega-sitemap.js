@@ -43,7 +43,7 @@ const corePages = [
   '/about', '/contact', '/how-we-price', '/cash-buyers-comparison', '/privacy', '/terms',
   '/closing-cost-calculator', '/home-value-estimator', '/florida-market-report',
   '/cities/', '/counties/', '/guides/', '/blog/', '/situations/',
-  '/states/', '/case-studies/', '/neighborhoods/', '/zip/'
+  '/states/', '/case-studies/', '/neighborhoods/', '/zip/', '/commercial'
 ].map(url => ({ loc: SITE + url, priority: url === '/' ? '1.0' : '0.8', changefreq: 'weekly' }));
 
 // === GUIDE / SITUATION / BLOG / CASE STUDY existing static pages (scan filesystem) ===
@@ -112,6 +112,29 @@ for (const c of cities) {
   }
 }
 
+// === COMMERCIAL CITY PAGES (29,189 URLs) ===
+const commercialCityUrls = cities.map(c => ({
+  loc: `${SITE}/commercial/${c.state.toLowerCase()}/${c.slug}`,
+  priority: '0.6',
+  changefreq: 'monthly'
+}));
+
+// === COMMERCIAL ASSET-CLASS COMBINATIONS (29,189 cities × 12 asset classes = 350,268 URLs) ===
+const ASSET_CLASS_SLUGS = [
+  'multifamily','office','retail','industrial','hospitality','self-storage',
+  'healthcare','mixed-use','senior-living','student-housing','data-center','land-development'
+];
+const commercialAssetUrls = [];
+for (const c of cities) {
+  for (const a of ASSET_CLASS_SLUGS) {
+    commercialAssetUrls.push({
+      loc: `${SITE}/commercial/${c.state.toLowerCase()}/${c.slug}/${a}`,
+      priority: '0.5',
+      changefreq: 'monthly'
+    });
+  }
+}
+
 // === WRITE SUB-SITEMAPS ===
 console.log('Writing sub-sitemaps...');
 const staticFiles = writeChunked('sitemap-static', allStatic);
@@ -132,8 +155,14 @@ console.log(`  premium: ${premiumUrls.length} URLs in ${premiumFiles.length} fil
 const typeFiles = writeChunked('sitemap-type', typeUrls);
 console.log(`  property-types: ${typeUrls.length} URLs in ${typeFiles.length} file(s)`);
 
+const commercialCityFiles = writeChunked('sitemap-commercial-city', commercialCityUrls);
+console.log(`  commercial-city: ${commercialCityUrls.length} URLs in ${commercialCityFiles.length} file(s)`);
+
+const commercialAssetFiles = writeChunked('sitemap-commercial-asset', commercialAssetUrls);
+console.log(`  commercial-asset: ${commercialAssetUrls.length} URLs in ${commercialAssetFiles.length} file(s)`);
+
 // === WRITE SITEMAP INDEX ===
-const allFiles = [...staticFiles, ...zipFiles, ...sellFiles, ...distressedFiles, ...premiumFiles, ...typeFiles];
+const allFiles = [...staticFiles, ...zipFiles, ...sellFiles, ...distressedFiles, ...premiumFiles, ...typeFiles, ...commercialCityFiles, ...commercialAssetFiles];
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allFiles.map(f => `  <sitemap><loc>${SITE}/${f}</loc><lastmod>${today}</lastmod></sitemap>`).join('\n')}
@@ -141,6 +170,6 @@ ${allFiles.map(f => `  <sitemap><loc>${SITE}/${f}</loc><lastmod>${today}</lastmo
 
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), indexXml, 'utf-8');
 console.log(`\nWrote sitemap.xml (index) -> ${allFiles.length} sub-sitemaps`);
-const total = allStatic.length + zipUrls.length + sellUrls.length + distressedUrls.length + premiumUrls.length + typeUrls.length;
+const total = allStatic.length + zipUrls.length + sellUrls.length + distressedUrls.length + premiumUrls.length + typeUrls.length + commercialCityUrls.length + commercialAssetUrls.length;
 console.log(`TOTAL URLs across all sitemaps: ${total.toLocaleString()}`);
 console.log('Done.');

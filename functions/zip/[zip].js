@@ -3,6 +3,7 @@
 import { ZIPS } from '../_lib/zips-data.js';
 import { STATES } from '../_lib/states-data.js';
 import { renderPage, htmlResponse, notFoundResponse, titleCase } from '../_lib/template.js';
+import { pickDeepContent } from '../_lib/deep-content.js';
 
 const STATE_NAMES = {
   AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',
@@ -91,6 +92,11 @@ export async function onRequest(context) {
         <p>Statewide median home price: <strong>${stateInfo.medianHomePrice}</strong>. Statewide average days on market for traditional listings: <strong>${stateInfo.avgDays} days</strong>. Your ZIP ${zip} (${city}, ${county} County) micro-market may differ - we pull comparable sales from the immediate area when preparing your offer.</p>`
     });
   }
+
+  // === DEEP-CONTENT BLOCKS (push every page past 2,500 words) ===
+  const locInfo = { label: `${zip} (${city})`, city, stateName, state, county, zip };
+  const deepBlocks = pickDeepContent(locInfo, 'zip', 9);
+  for (const b of deepBlocks) sections.push(b);
 
   // Authoritative sources for E-E-A-T
   sections.push({

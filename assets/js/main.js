@@ -20,6 +20,7 @@
       { href: '/how-it-works.html', label: 'How It Works', id: 'how-it-works' },
       { href: '/compare-options.html', label: 'Compare Options', id: 'compare' },
       { href: '/categories.html', label: 'Property Types', id: 'categories' },
+      { href: '/commercial', label: 'Commercial ($5M-$100M+)', id: 'commercial' },
       { href: '/faq.html', label: 'FAQ', id: 'faq' },
       { href: '/about.html', label: 'About', id: 'about' },
       { href: '/contact.html', label: 'Contact', id: 'contact' },
