@@ -37,7 +37,7 @@
         <div class="nav__links" id="nav-links">
           ${linkHTML}
           <a href="${PHONE_HREF}" class="nav__phone">${PHONE}</a>
-          <a href="/cash-offer.html" class="nav__cta">Get Cash Offer</a>
+          <a href="/cash-offer" class="nav__cta">Get Cash Offer</a>
         </div>
         <button class="nav__hamburger" id="nav-toggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -53,7 +53,7 @@
       <div class="container">
         <h2>Ready to Sell Your Florida Home?</h2>
         <p>Get a fair, no-obligation cash offer in 24 hours. No agents, no fees, no repairs.</p>
-        <a href="/cash-offer.html" class="btn btn--white btn--large">Get My Cash Offer</a>
+        <a href="/cash-offer" class="btn btn--white btn--large">Get My Cash Offer</a>
       </div>
     </div>
     <footer class="footer">
@@ -66,23 +66,23 @@
           <div>
             <h4>Property Types</h4>
             <ul>
-              <li><a href="/categories.html#residential">Residential</a></li>
-              <li><a href="/categories.html#commercial">Commercial</a></li>
-              <li><a href="/categories.html#land">Vacant Land</a></li>
-              <li><a href="/categories.html#multi-family">Multi-Family</a></li>
-              <li><a href="/categories.html#mobile-homes">Mobile Homes</a></li>
-              <li><a href="/categories.html#condos">Condos</a></li>
+              <li><a href="/categories#residential">Residential</a></li>
+              <li><a href="/categories#commercial">Commercial</a></li>
+              <li><a href="/categories#land">Vacant Land</a></li>
+              <li><a href="/categories#multi-family">Multi-Family</a></li>
+              <li><a href="/categories#mobile-homes">Mobile Homes</a></li>
+              <li><a href="/categories#condos">Condos</a></li>
             </ul>
           </div>
           <div>
             <h4>Top Cities</h4>
             <ul>
-              <li><a href="/cities/sell-house-fast-miami.html">Miami</a></li>
-              <li><a href="/cities/sell-house-fast-orlando.html">Orlando</a></li>
-              <li><a href="/cities/sell-house-fast-tampa.html">Tampa</a></li>
-              <li><a href="/cities/sell-house-fast-jacksonville.html">Jacksonville</a></li>
-              <li><a href="/cities/sell-house-fast-fort-lauderdale.html">Fort Lauderdale</a></li>
-              <li><a href="/cities/sell-house-fast-cape-canaveral.html">Cape Canaveral</a></li>
+              <li><a href="/cities/sell-house-fast-miami">Miami</a></li>
+              <li><a href="/cities/sell-house-fast-orlando">Orlando</a></li>
+              <li><a href="/cities/sell-house-fast-tampa">Tampa</a></li>
+              <li><a href="/cities/sell-house-fast-jacksonville">Jacksonville</a></li>
+              <li><a href="/cities/sell-house-fast-fort-lauderdale">Fort Lauderdale</a></li>
+              <li><a href="/cities/sell-house-fast-cape-canaveral">Cape Canaveral</a></li>
             </ul>
           </div>
           <div>
@@ -93,19 +93,19 @@
               <li><a href="/case-studies/">Success Stories</a></li>
               <li><a href="/blog/">Blog</a></li>
               <li><a href="/states/">All 50 States</a></li>
-              <li><a href="/closing-cost-calculator.html">Closing Cost Calculator</a></li>
-              <li><a href="/florida-market-report.html">FL Market Report</a></li>
-              <li><a href="/faq.html">FAQ</a></li>
+              <li><a href="/closing-cost-calculator">Closing Cost Calculator</a></li>
+              <li><a href="/florida-market-report">FL Market Report</a></li>
+              <li><a href="/faq">FAQ</a></li>
             </ul>
           </div>
         </div>
         <div class="footer__bottom">
           <p class="footer__copy">&copy; ${YEAR} OneCashOffer. All rights reserved. WETYR Corp.</p>
           <div class="footer__legal">
-            <a href="/faq.html">FAQ</a>
-            <a href="/contact.html">Contact</a>
-            <a href="/privacy.html">Privacy</a>
-            <a href="/terms.html">Terms</a>
+            <a href="/faq">FAQ</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
           </div>
         </div>
       </div>

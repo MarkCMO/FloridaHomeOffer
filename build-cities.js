@@ -36,7 +36,7 @@ cities.forEach(city => {
     .filter(slug => cityMap[slug])
     .map(slug => {
       const n = cityMap[slug];
-      return `<a href="/cities/sell-house-fast-${n.slug}.html" class="city-link">${n.name} <span class="city-link__arrow">&#8594;</span></a>`;
+      return `<a href="/cities/sell-house-fast-${n.slug}" class="city-link">${n.name} <span class="city-link__arrow">&#8594;</span></a>`;
     })
     .join('\n        ');
 
@@ -88,7 +88,7 @@ const cityIndexHTML = `<!DOCTYPE html>
   <section class="section">
     <div class="container">
       <div class="city-grid">
-        ${cities.map(c => `<a href="/cities/sell-house-fast-${c.slug}.html" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+        ${cities.map(c => `<a href="/cities/sell-house-fast-${c.slug}" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
       </div>
     </div>
   </section>
@@ -129,7 +129,7 @@ if (fs.existsSync(COUNTY_DATA_FILE) && fs.existsSync(COUNTY_TEMPLATE_FILE)) {
       .filter(slug => cityMap[slug])
       .map(slug => {
         const c = cityMap[slug];
-        return `<a href="/cities/sell-house-fast-${c.slug}.html" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`;
+        return `<a href="/cities/sell-house-fast-${c.slug}" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`;
       })
       .join('\n        ');
 
@@ -173,7 +173,7 @@ if (fs.existsSync(COUNTY_DATA_FILE) && fs.existsSync(COUNTY_TEMPLATE_FILE)) {
   <section class="section">
     <div class="container">
       <div class="city-grid">
-        ${counties.map(c => `<a href="/counties/sell-property-${c.slug}.html" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+        ${counties.map(c => `<a href="/counties/sell-property-${c.slug}" class="city-link">${c.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
       </div>
     </div>
   </section>
@@ -213,7 +213,7 @@ if (fs.existsSync(NEIGHBORHOOD_DATA_FILE) && fs.existsSync(NEIGHBORHOOD_TEMPLATE
       .map(slug => {
         const nb = neighborhoods.find(x => x.slug === slug);
         if (!nb) return '';
-        return `<a href="/neighborhoods/${nb.slug}.html" class="city-link">${nb.name} <span class="city-link__arrow">&#8594;</span></a>`;
+        return `<a href="/neighborhoods/${nb.slug}" class="city-link">${nb.name} <span class="city-link__arrow">&#8594;</span></a>`;
       })
       .filter(Boolean)
       .join('\n        ');
@@ -258,7 +258,7 @@ if (fs.existsSync(NEIGHBORHOOD_DATA_FILE) && fs.existsSync(NEIGHBORHOOD_TEMPLATE
   <section class="section">
     <div class="container">
       <div class="city-grid">
-        ${neighborhoods.map(n => `<a href="/neighborhoods/${n.slug}.html" class="city-link">${n.name}, ${n.city} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+        ${neighborhoods.map(n => `<a href="/neighborhoods/${n.slug}" class="city-link">${n.name}, ${n.city} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
       </div>
     </div>
   </section>
@@ -339,7 +339,7 @@ if (fs.existsSync(STATE_DATA_FILE) && fs.existsSync(STATE_TEMPLATE_FILE)) {
   <section class="section">
     <div class="container">
       <div class="city-grid">
-        ${states.map(s => `<a href="/states/sell-property-${s.slug}.html" class="city-link">${s.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
+        ${states.map(s => `<a href="/states/sell-property-${s.slug}" class="city-link">${s.name} <span class="city-link__arrow">&#8594;</span></a>`).join('\n        ')}
       </div>
     </div>
   </section>
